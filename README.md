@@ -1,7 +1,7 @@
-# codepath-group-project-BookApp Original Project - README
+Original App Design Project - README
 ===
 
-# App Title: Books!
+# Books!
 
 ## Table of Contents
 1. [Overview](#Overview)
@@ -88,18 +88,56 @@ Users can scroll through trending/new books on the homepage and be able to selec
    * => Settings Screen, this is implements later as bonus
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://i.imgur.com/NonZiYn.jpg" width=500>
 
 ### [BONUS] Digital Wireframes & Mockups
+
+<img src="https://i.imgur.com/fzR6YJt.png" width=800>
 
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+#### Book
+
+   | Property            | Type     | Description |
+   | ------------------- | -------- | ------------|
+   | bookId              | String   | unique id for the book (default field) |
+   | authorName          | String   | author of book |
+   | bookCoverImage      | File     | image of book cover |
+   | bookTitle           | String   | title of the book |
+   | bookDescriptionText | String   | book synopsis |
+   | recommendationsCount| Int      | number of people recommending the book |
+   | yearOfRelease       | Int      | year the book was released |
+   | bookGenre           | String   | genre of the book |
+   
+#### User
+
+   | Property      | Type           | Description |
+   | ------------- | --------       | ------------|
+   | usernameId    | String         | unique id for the user's account (default field) |
+   | userEmail     | String         | email linked to user's account |
+   | password      | String         | user's password |
+   | profileImage  | File           | profile image for user |
+   | userBio       | String         | bio desription of user |
+   | commentsCount | Int            | number of comments that has been posted by user |
+   | friendsCount  | Int            | number of likes for the post |
+   | groupCount    | Int            | number of groups that user is in |
+   
 ### Networking
-- [Add list of network requests by screen ]
+ - Saved Books Screen: queries all book titles saved by user
+```swift
+let query = PFQuery(className:"books")
+query.whereKey("userNameId", equalTo: currentUser)
+query.findObjectsInBackground { (books: [PFObject]?, error: Error?) in
+   if let error = error { 
+      print(error.localizedDescription)
+   } else if let books = books {
+      print("Successfully retrieved \(books.count) books.")
+  // TODO: Do something with books...
+   }
+}
+```
+
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
