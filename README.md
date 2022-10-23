@@ -28,16 +28,16 @@ Users can scroll through trending/new books on the homepage and be able to selec
 
 **Required Must-have Stories**
 
-* User can log in
-* User can scroll through trending books page
-* User can search for specific book titles
-* User can select book to get more information
-* User can view book information and ratings
-* User can save book titles
-* User can navigate between tabs in tab bar
-* User can view profile
-* User can view saved book titles list
-* User can view Book's discussion board
+- [ ] User can log in
+- [ ] User can scroll through trending books page
+- [ ] User can search for specific book titles
+- [ ] User can select book to get more information
+- [ ] User can view book information and ratings
+- [ ] User can save book titles
+- [ ] User can navigate between tabs in tab bar
+- [ ] User can view profile
+- [ ] User can view saved book titles list
+- [ ] User can view Book's discussion board
 
 **Optional Nice-to-have Stories**
 
