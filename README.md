@@ -141,3 +141,7 @@ query.findObjectsInBackground { (books: [PFObject]?, error: Error?) in
 
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+Sprint 1 - GIF Walkthrough
+
+![](http://g.recordit.co/JAW2WuTVxC.gif)
