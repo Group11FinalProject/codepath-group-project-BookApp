@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27602EF3030EF51427C9146E /* Pods_Read_and_Tell_Read_and_TellUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFE11B952D940728B8FA723 /* Pods_Read_and_Tell_Read_and_TellUITests.framework */; };
+		3231C8ABACF3553686ABF66E /* Pods_Read_and_Tell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF36CD35202CA904D35BFBA0 /* Pods_Read_and_Tell.framework */; };
+		6E0D1033EE67066FE5B435DD /* Pods_Read_and_TellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE015C5A82D533D0CC0F3B9 /* Pods_Read_and_TellTests.framework */; };
 		777FC5762907B54300697B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC5752907B54300697B75 /* AppDelegate.swift */; };
 		777FC5782907B54300697B75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC5772907B54300697B75 /* SceneDelegate.swift */; };
 		777FC57A2907B54300697B75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC5792907B54300697B75 /* ViewController.swift */; };
@@ -36,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E94179367F53937B60712C6 /* Pods-Read and Tell-Read and TellUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell-Read and TellUITests.debug.xcconfig"; path = "Target Support Files/Pods-Read and Tell-Read and TellUITests/Pods-Read and Tell-Read and TellUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		18D4AC31E380C62B0252851B /* Pods-Read and Tell-Read and TellUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell-Read and TellUITests.release.xcconfig"; path = "Target Support Files/Pods-Read and Tell-Read and TellUITests/Pods-Read and Tell-Read and TellUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2FC5905E6DB9E40CD15426B5 /* Pods-Read and TellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and TellTests.debug.xcconfig"; path = "Target Support Files/Pods-Read and TellTests/Pods-Read and TellTests.debug.xcconfig"; sourceTree = "<group>"; };
+		40396BFA8E8C38899A52D670 /* Pods-Read and Tell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell.release.xcconfig"; path = "Target Support Files/Pods-Read and Tell/Pods-Read and Tell.release.xcconfig"; sourceTree = "<group>"; };
 		777FC5722907B54300697B75 /* Read and Tell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Read and Tell.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777FC5752907B54300697B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		777FC5772907B54300697B75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +56,11 @@
 		777FC5922907B54500697B75 /* Read and TellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Read and TellUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777FC5962907B54500697B75 /* Read_and_TellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Read_and_TellUITests.swift; sourceTree = "<group>"; };
 		777FC5982907B54500697B75 /* Read_and_TellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Read_and_TellUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		78DEE57CFB282671778E3684 /* Pods-Read and Tell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell.debug.xcconfig"; path = "Target Support Files/Pods-Read and Tell/Pods-Read and Tell.debug.xcconfig"; sourceTree = "<group>"; };
+		9DFE11B952D940728B8FA723 /* Pods_Read_and_Tell_Read_and_TellUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Read_and_Tell_Read_and_TellUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF36CD35202CA904D35BFBA0 /* Pods_Read_and_Tell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Read_and_Tell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1354AA5EE378E6C00BCDDD3 /* Pods-Read and TellTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and TellTests.release.xcconfig"; path = "Target Support Files/Pods-Read and TellTests/Pods-Read and TellTests.release.xcconfig"; sourceTree = "<group>"; };
+		EFE015C5A82D533D0CC0F3B9 /* Pods_Read_and_TellTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Read_and_TellTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3231C8ABACF3553686ABF66E /* Pods_Read_and_Tell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E0D1033EE67066FE5B435DD /* Pods_Read_and_TellTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27602EF3030EF51427C9146E /* Pods_Read_and_Tell_Read_and_TellUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39325E62902EACE5C1872EFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF36CD35202CA904D35BFBA0 /* Pods_Read_and_Tell.framework */,
+				9DFE11B952D940728B8FA723 /* Pods_Read_and_Tell_Read_and_TellUITests.framework */,
+				EFE015C5A82D533D0CC0F3B9 /* Pods_Read_and_TellTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		777FC5692907B54300697B75 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +108,8 @@
 				777FC58B2907B54500697B75 /* Read and TellTests */,
 				777FC5952907B54500697B75 /* Read and TellUITests */,
 				777FC5732907B54300697B75 /* Products */,
+				A65BF5803E080CD22402EF20 /* Pods */,
+				39325E62902EACE5C1872EFB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +154,20 @@
 			path = "Read and TellUITests";
 			sourceTree = "<group>";
 		};
+		A65BF5803E080CD22402EF20 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				78DEE57CFB282671778E3684 /* Pods-Read and Tell.debug.xcconfig */,
+				40396BFA8E8C38899A52D670 /* Pods-Read and Tell.release.xcconfig */,
+				0E94179367F53937B60712C6 /* Pods-Read and Tell-Read and TellUITests.debug.xcconfig */,
+				18D4AC31E380C62B0252851B /* Pods-Read and Tell-Read and TellUITests.release.xcconfig */,
+				2FC5905E6DB9E40CD15426B5 /* Pods-Read and TellTests.debug.xcconfig */,
+				E1354AA5EE378E6C00BCDDD3 /* Pods-Read and TellTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 777FC59C2907B54500697B75 /* Build configuration list for PBXNativeTarget "Read and Tell" */;
 			buildPhases = (
+				D12EEEDD1D3EE85EA9B0158F /* [CP] Check Pods Manifest.lock */,
 				777FC56E2907B54300697B75 /* Sources */,
 				777FC56F2907B54300697B75 /* Frameworks */,
 				777FC5702907B54300697B75 /* Resources */,
+				339893DBFA5C83531FBFE384 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 777FC59F2907B54500697B75 /* Build configuration list for PBXNativeTarget "Read and TellTests" */;
 			buildPhases = (
+				4FAE46AF1E3B1520FEAC448D /* [CP] Check Pods Manifest.lock */,
 				777FC5842907B54500697B75 /* Sources */,
 				777FC5852907B54500697B75 /* Frameworks */,
 				777FC5862907B54500697B75 /* Resources */,
@@ -169,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 777FC5A22907B54500697B75 /* Build configuration list for PBXNativeTarget "Read and TellUITests" */;
 			buildPhases = (
+				47B3FBB08BE33977E58E077B /* [CP] Check Pods Manifest.lock */,
 				777FC58E2907B54500697B75 /* Sources */,
 				777FC58F2907B54500697B75 /* Frameworks */,
 				777FC5902907B54500697B75 /* Resources */,
+				389CD6616AD9182565450C48 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,6 +298,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		339893DBFA5C83531FBFE384 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Read and Tell/Pods-Read and Tell-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Read and Tell/Pods-Read and Tell-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Read and Tell/Pods-Read and Tell-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		389CD6616AD9182565450C48 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Read and Tell-Read and TellUITests/Pods-Read and Tell-Read and TellUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Read and Tell-Read and TellUITests/Pods-Read and Tell-Read and TellUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Read and Tell-Read and TellUITests/Pods-Read and Tell-Read and TellUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		47B3FBB08BE33977E58E077B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Read and Tell-Read and TellUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FAE46AF1E3B1520FEAC448D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Read and TellTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D12EEEDD1D3EE85EA9B0158F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Read and Tell-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		777FC56E2907B54300697B75 /* Sources */ = {
@@ -432,6 +581,7 @@
 		};
 		777FC59D2907B54500697B75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78DEE57CFB282671778E3684 /* Pods-Read and Tell.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -460,6 +610,7 @@
 		};
 		777FC59E2907B54500697B75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40396BFA8E8C38899A52D670 /* Pods-Read and Tell.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,6 +639,7 @@
 		};
 		777FC5A02907B54500697B75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FC5905E6DB9E40CD15426B5 /* Pods-Read and TellTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +660,7 @@
 		};
 		777FC5A12907B54500697B75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1354AA5EE378E6C00BCDDD3 /* Pods-Read and TellTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +681,7 @@
 		};
 		777FC5A32907B54500697B75 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E94179367F53937B60712C6 /* Pods-Read and Tell-Read and TellUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +700,7 @@
 		};
 		777FC5A42907B54500697B75 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18D4AC31E380C62B0252851B /* Pods-Read and Tell-Read and TellUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
