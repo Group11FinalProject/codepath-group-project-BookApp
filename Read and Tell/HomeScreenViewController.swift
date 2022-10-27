@@ -21,8 +21,8 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
         bookCollectionView.dataSource = self
         
         let layout = bookCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.minimumLineSpacing = 5
-        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 4
+        layout.minimumInteritemSpacing = 4
         let width = (view.frame.size.width - layout.minimumLineSpacing) / 2
         layout.itemSize = CGSize(width: width, height: width * 1.5)
         
@@ -61,9 +61,9 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
         cell.bookTitleLabel.text = bookTitle
         
         let bookImage = book["book_image"] as! String
-        let imageWidth = book["book_image_width"] as! Int
-        let imageHeight = book["book_image_height"] as! Int
-        let size = CGSize(width: imageWidth, height: imageHeight)
+        //let imageWidth = book["book_image_width"] as! Int
+        //let imageHeight = book["book_image_height"] as! Int
+        //let size = CGSize(width: imageWidth, height: imageHeight)
         let bookImageUrl = URL(string: bookImage)
         /*
             if let data = try? Data(contentsOf: bookImageUrl!) {
