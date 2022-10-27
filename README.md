@@ -29,7 +29,7 @@ Users can scroll through trending/new books on the homepage and be able to selec
 **Required Must-have Stories**
 
 - [ ] User can log in
-- [ ] User can scroll through trending books page
+- [x] User can scroll through trending books page
 - [ ] User can search for specific book titles
 - [ ] User can select book to get more information
 - [ ] User can view book information and ratings
