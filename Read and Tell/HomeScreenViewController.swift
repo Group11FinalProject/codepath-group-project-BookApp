@@ -20,16 +20,18 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
         bookCollectionView.delegate = self
         bookCollectionView.dataSource = self
         
-        
         let layout = bookCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        
-        
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
+
         
         let width = (view.frame.size.width - layout.minimumInteritemSpacing) / 2
         
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+
+        let width = (view.frame.size.width - layout.minimumLineSpacing) / 2
+        layout.itemSize = CGSize(width: width, height: width * 1.5)
+
         
         let url = URL(string: "https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=iz8MAMr5DnmAbPApq1UYPyrGinGYebIP")!
                 let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -66,9 +68,18 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
         cell.bookTitleLabel.text = bookTitle
         
         let bookImage = book["book_image"] as! String
+        //let imageWidth = book["book_image_width"] as! Int
+        //let imageHeight = book["book_image_height"] as! Int
+        //let size = CGSize(width: imageWidth, height: imageHeight)
         let bookImageUrl = URL(string: bookImage)
+        /*
+            if let data = try? Data(contentsOf: bookImageUrl!) {
+                let image: UIImage = UIImage(data: data)!
+                let scaledImage = image.af.imageAspectScaled(toFill: size)
+                cell.bookCoverImage.image = scaledImage
+            }
+        */
         cell.bookCoverImage.af.setImage(withURL: bookImageUrl!)
-        
         return cell
     }
     
