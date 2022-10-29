@@ -29,9 +29,7 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
         
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
 
-        let width = (view.frame.size.width - layout.minimumLineSpacing) / 2
-        layout.itemSize = CGSize(width: width, height: width * 1.5)
-
+      
         
         let url = URL(string: "https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=iz8MAMr5DnmAbPApq1UYPyrGinGYebIP")!
                 let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
