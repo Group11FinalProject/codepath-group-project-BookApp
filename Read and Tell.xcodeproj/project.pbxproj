@@ -19,7 +19,7 @@
 		777FC58D2907B54500697B75 /* Read_and_TellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC58C2907B54500697B75 /* Read_and_TellTests.swift */; };
 		777FC5972907B54500697B75 /* Read_and_TellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC5962907B54500697B75 /* Read_and_TellUITests.swift */; };
 		777FC5992907B54500697B75 /* Read_and_TellUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC5982907B54500697B75 /* Read_and_TellUITestsLaunchTests.swift */; };
-		89268D50290B42AF00F4949B /* Paprika-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89268D4F290B42AF00F4949B /* Paprika-Regular.ttf */; };
+		89556B43290CC63E00B8D1FD /* Paprika-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 89556B42290CC63E00B8D1FD /* Paprika-Regular.ttf */; };
 		89C21DB82909E1D500B041DE /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C21DB72909E1D500B041DE /* HomeScreenViewController.swift */; };
 		89C21DBA2909E28D00B041DE /* BookGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C21DB92909E28D00B041DE /* BookGridCell.swift */; };
 /* End PBXBuildFile section */
@@ -60,7 +60,7 @@
 		777FC5962907B54500697B75 /* Read_and_TellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Read_and_TellUITests.swift; sourceTree = "<group>"; };
 		777FC5982907B54500697B75 /* Read_and_TellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Read_and_TellUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		78DEE57CFB282671778E3684 /* Pods-Read and Tell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell.debug.xcconfig"; path = "Target Support Files/Pods-Read and Tell/Pods-Read and Tell.debug.xcconfig"; sourceTree = "<group>"; };
-		89268D4F290B42AF00F4949B /* Paprika-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Paprika-Regular.ttf"; path = "../../../Downloads/Paprika/Paprika-Regular.ttf"; sourceTree = "<group>"; };
+		89556B42290CC63E00B8D1FD /* Paprika-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Paprika-Regular.ttf"; sourceTree = "<group>"; };
 		89C21DB72909E1D500B041DE /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		89C21DB92909E28D00B041DE /* BookGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGridCell.swift; sourceTree = "<group>"; };
 		9DFE11B952D940728B8FA723 /* Pods_Read_and_Tell_Read_and_TellUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Read_and_Tell_Read_and_TellUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,11 +132,11 @@
 		777FC5742907B54300697B75 /* Read and Tell */ = {
 			isa = PBXGroup;
 			children = (
+				89556B42290CC63E00B8D1FD /* Paprika-Regular.ttf */,
 				777FC5752907B54300697B75 /* AppDelegate.swift */,
 				777FC5772907B54300697B75 /* SceneDelegate.swift */,
 				777FC5792907B54300697B75 /* ViewController.swift */,
 				777FC57B2907B54300697B75 /* Main.storyboard */,
-				89268D4F290B42AF00F4949B /* Paprika-Regular.ttf */,
 				777FC57E2907B54500697B75 /* Assets.xcassets */,
 				777FC5802907B54500697B75 /* LaunchScreen.storyboard */,
 				777FC5832907B54500697B75 /* Info.plist */,
@@ -287,7 +287,7 @@
 			files = (
 				777FC5822907B54500697B75 /* LaunchScreen.storyboard in Resources */,
 				777FC57F2907B54500697B75 /* Assets.xcassets in Resources */,
-				89268D50290B42AF00F4949B /* Paprika-Regular.ttf in Resources */,
+				89556B43290CC63E00B8D1FD /* Paprika-Regular.ttf in Resources */,
 				777FC57D2907B54300697B75 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
