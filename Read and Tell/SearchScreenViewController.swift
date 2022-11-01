@@ -10,13 +10,16 @@ import UIKit
 class SearchScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var searchTableView: UITableView!
-    var searchedBooks = [NSArray]()
+    var searchedBooks = [NSDictionary]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchTableView.dataSource = self
         searchTableView.delegate = self
+        
+        self.searchTableView.rowHeight = UITableView.automaticDimension
+        self.searchTableView.estimatedRowHeight = 210
         
         let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=and-then-there-were-none&key=AIzaSyBPoICjs3B7XKBQ5ou-eo3n10pgNTecQG0")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -28,17 +31,20 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
                 
-                let items = dataDictionary["items"] as! NSArray
-                //self.searchedBooks = items as? [NSArray]
+                
+                //Replace NSDictionary with NSArray
+                self.searchedBooks = dataDictionary["items"] as! [NSDictionary]
+                
                 /*
-                for item in items {
-                    self.searchedBooks.append(item as! NSArray)
-                }
-                 
+                 for item in items {
+                 //self.searchedBooks.append((item as? NSDictionary)!)
+                 self.searchedBooks.append(item as NSDictionary)
+                 }
                  */
-//                self.searchedBooks = itemElement["volumeInfo"] as? [[String:Any]] ?? []
-//                self.seachTableView.reloadData()
-                print(items[0])
+                
+                //self.searchedBooks = items
+                self.searchTableView.reloadData()
+                //print(self.searchedBooks)
             }
         }
         task.resume()
@@ -50,6 +56,29 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchTableView.dequeueReusableCell(withIdentifier: "BookSearchCell") as! BookSearchCell
+        let bookInfo = searchedBooks[indexPath.row]["volumeInfo"] as? NSDictionary
+        
+        cell.bookTitleLabel.text = bookInfo?["title"] as? String
+        
+        let yearString = bookInfo?["publishedDate"] as? String
+        if yearString != nil {
+            var yearSubString = yearString!.prefix(4)
+            cell.releaseYearLabel.text = String(yearSubString)
+        } else {
+            cell.releaseYearLabel.text = ""
+        }
+        
+        let authorArray = bookInfo?["authors"] as? NSArray
+        cell.authorNameLabel.text = authorArray?[0] as? String ?? "N/A"
+        
+        let imageLinksArray = bookInfo?["imageLinks"] as? NSDictionary
+        if imageLinksArray != nil {
+            let bookCoverImage = imageLinksArray?["thumbnail"] as! String
+            let bookCoverImageUrl = URL(string: bookCoverImage)
+            cell.bookCoverImage.af.setImage(withURL: bookCoverImageUrl!)
+        } else {
+            cell.bookCoverImage.image = UIImage(named: "book_cover_unavailable")
+        }
         
         return cell
     }
