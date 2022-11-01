@@ -28,9 +28,9 @@ Users can scroll through trending/new books on the homepage and be able to selec
 
 **Required Must-have Stories**
 
-- [ ] User can log in
+- [x] User can log in
 - [x] User can scroll through trending books page
-- [ ] User can search for specific book titles
+- [x] User can search for specific book titles
 - [ ] User can select book to get more information
 - [ ] User can view book information and ratings
 - [ ] User can save book titles
@@ -41,7 +41,7 @@ Users can scroll through trending/new books on the homepage and be able to selec
 
 **Optional Nice-to-have Stories**
 
-* User can sign up
+- [x] User can sign up
 * User can add friends
 * User can message friends
 * User can edit their saved list
