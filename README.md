@@ -36,7 +36,7 @@ Users can scroll through trending/new books on the homepage and be able to selec
 - [ ] User can save book titles
 - [ ] User can navigate between tabs in tab bar
 - [ ] User can view profile
-- [ ] User can view saved book titles list
+- [x] User can view saved book titles list
 - [ ] User can view Book's discussion board
 
 **Optional Nice-to-have Stories**
