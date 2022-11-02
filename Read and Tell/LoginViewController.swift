@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
@@ -20,7 +21,17 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        let username = usernameText.text!
+                let password = passwordText.text!
+
+                PFUser.logInWithUsername(inBackground: username, password: password) { (user, error) in
+                    if user != nil {
+                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    } else {
+                        print("Error: (error?.localizedDescription)")
+                    }
+                }
+        
     }
     
     @IBAction func signUpButton(_ sender: Any) {
