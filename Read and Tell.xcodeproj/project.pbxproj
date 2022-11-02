@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		27602EF3030EF51427C9146E /* Pods_Read_and_Tell_Read_and_TellUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFE11B952D940728B8FA723 /* Pods_Read_and_Tell_Read_and_TellUITests.framework */; };
+		294FC0B92912249D0086E231 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294FC0B82912249D0086E231 /* LoginViewController.swift */; };
+		294FC0BB29122B3D0086E231 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294FC0BA29122B3D0086E231 /* SignupViewController.swift */; };
 		3231C8ABACF3553686ABF66E /* Pods_Read_and_Tell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF36CD35202CA904D35BFBA0 /* Pods_Read_and_Tell.framework */; };
 		6E0D1033EE67066FE5B435DD /* Pods_Read_and_TellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE015C5A82D533D0CC0F3B9 /* Pods_Read_and_TellTests.framework */; };
 		7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7749C737290F91B50029A91D /* CollectionScreenViewController.swift */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		0E94179367F53937B60712C6 /* Pods-Read and Tell-Read and TellUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell-Read and TellUITests.debug.xcconfig"; path = "Target Support Files/Pods-Read and Tell-Read and TellUITests/Pods-Read and Tell-Read and TellUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		18D4AC31E380C62B0252851B /* Pods-Read and Tell-Read and TellUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell-Read and TellUITests.release.xcconfig"; path = "Target Support Files/Pods-Read and Tell-Read and TellUITests/Pods-Read and Tell-Read and TellUITests.release.xcconfig"; sourceTree = "<group>"; };
+		294FC0B82912249D0086E231 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		294FC0BA29122B3D0086E231 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		2FC5905E6DB9E40CD15426B5 /* Pods-Read and TellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and TellTests.debug.xcconfig"; path = "Target Support Files/Pods-Read and TellTests/Pods-Read and TellTests.debug.xcconfig"; sourceTree = "<group>"; };
 		40396BFA8E8C38899A52D670 /* Pods-Read and Tell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell.release.xcconfig"; path = "Target Support Files/Pods-Read and Tell/Pods-Read and Tell.release.xcconfig"; sourceTree = "<group>"; };
 		7749C737290F91B50029A91D /* CollectionScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionScreenViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				89C21DB92909E28D00B041DE /* BookGridCell.swift */,
 				7749C73B290FA0000029A91D /* CollectionGridCell.swift */,
 				77C7CE812910A7D0003836B7 /* BookSearchCell.swift */,
+				294FC0B82912249D0086E231 /* LoginViewController.swift */,
+				294FC0BA29122B3D0086E231 /* SignupViewController.swift */,
 			);
 			path = "Read and Tell";
 			sourceTree = "<group>";
@@ -426,12 +432,14 @@
 			files = (
 				77C7CE802910A6C5003836B7 /* SearchScreenViewController.swift in Sources */,
 				89C21DBA2909E28D00B041DE /* BookGridCell.swift in Sources */,
+				294FC0BB29122B3D0086E231 /* SignupViewController.swift in Sources */,
 				777FC57A2907B54300697B75 /* ViewController.swift in Sources */,
 				89C21DB82909E1D500B041DE /* HomeScreenViewController.swift in Sources */,
 				77C7CE822910A7D0003836B7 /* BookSearchCell.swift in Sources */,
 				777FC5762907B54300697B75 /* AppDelegate.swift in Sources */,
 				7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */,
 				777FC5782907B54300697B75 /* SceneDelegate.swift in Sources */,
+				294FC0B92912249D0086E231 /* LoginViewController.swift in Sources */,
 				7749C73C290FA0000029A91D /* CollectionGridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
