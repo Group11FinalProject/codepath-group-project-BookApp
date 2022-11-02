@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i7V-Mf-57g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DF3-oP-71N">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -69,6 +70,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8GX-t5-4Ja">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="Home" id="QRv-o0-3V7">
+                                        <imageReference key="image" image="house" catalog="system" symbolScale="large"/>
+                                    </tabBarItem>
+                                    <tabBarItem title="Search" image="magnifyingglass" catalog="system" id="JYJ-ZF-1dL"/>
+                                    <tabBarItem title="Saved Books" image="book" catalog="system" id="ePC-9L-oqt"/>
+                                    <tabBarItem title="Profile" image="person" catalog="system" id="yaX-hI-2E1"/>
+                                </items>
+                                <tabBarAppearance key="standardAppearance"/>
+                            </tabBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Xs-t8-F0k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -79,7 +94,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5zN-XO-nVa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-91" y="71"/>
+            <point key="canvasLocation" x="-91.304347826086968" y="70.982142857142847"/>
         </scene>
         <!--Search Screen View Controller-->
         <scene sceneID="YX4-XS-Vdc">
@@ -95,7 +110,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookSearchCell" rowHeight="210" id="0At-gv-c69" customClass="BookSearchCell" customModule="Read_and_Tell" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="210"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0At-gv-c69" id="TUy-9W-S07">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="210"/>
@@ -282,7 +297,11 @@
     </scenes>
     <resources>
         <image name="and then there were none" width="295" height="475"/>
+        <image name="book" catalog="system" width="128" height="99"/>
         <image name="bookshelf 2" width="612" height="408"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
