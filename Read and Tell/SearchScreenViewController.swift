@@ -144,7 +144,7 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
             
             let yearString = bookInfo?["publishedDate"] as? String
             if yearString != nil {
-                var yearSubString = yearString!.prefix(4)
+                let yearSubString = yearString!.prefix(4)
                 cell.releaseYearLabel.text = String(yearSubString)
             } else {
                 cell.releaseYearLabel.text = ""
@@ -173,5 +173,16 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
             becomeFirstResponder()
             searchBar.inputTextView.becomeFirstResponder()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        let indexPath = searchTableView.indexPath(for: cell)!
+        let book = searchedBooks[indexPath.row]
+        
+        let detailsViewController = segue.destination as! SearchBookDetailViewController
+        detailsViewController.book = book
+        
+        searchTableView.deselectRow(at: indexPath, animated: true)
     }
 }
