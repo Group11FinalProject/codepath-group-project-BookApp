@@ -78,7 +78,23 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
             }
         */
         cell.bookCoverImage.af.setImage(withURL: bookImageUrl!)
+        
+        /*
+        cell.addButtonTapAction = {
+                    self.performSegue(withIdentifier: "your segue", sender: self)
+                }
+         */
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UICollectionViewCell
+        let indexPath = bookCollectionView.indexPath(for: cell)!
+        let book = books[indexPath.item]
+        let featuredDetailsViewController = segue.destination as! FeaturedBookDetailViewController
+        featuredDetailsViewController.book = book
+        
+        bookCollectionView.deselectItem(at: indexPath, animated: true)
     }
     
 }
