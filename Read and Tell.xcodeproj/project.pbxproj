@@ -12,6 +12,7 @@
 		294FC0BB29122B3D0086E231 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294FC0BA29122B3D0086E231 /* SignupViewController.swift */; };
 		3231C8ABACF3553686ABF66E /* Pods_Read_and_Tell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF36CD35202CA904D35BFBA0 /* Pods_Read_and_Tell.framework */; };
 		5E14373B291383CD008D2ACB /* SearchBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */; };
+		5E2195732914779B001D259F /* FeaturedBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */; };
 		6E0D1033EE67066FE5B435DD /* Pods_Read_and_TellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE015C5A82D533D0CC0F3B9 /* Pods_Read_and_TellTests.framework */; };
 		7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7749C737290F91B50029A91D /* CollectionScreenViewController.swift */; };
 		7749C73A290F9CAA0029A91D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7749C739290F9CAA0029A91D /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		2FC5905E6DB9E40CD15426B5 /* Pods-Read and TellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and TellTests.debug.xcconfig"; path = "Target Support Files/Pods-Read and TellTests/Pods-Read and TellTests.debug.xcconfig"; sourceTree = "<group>"; };
 		40396BFA8E8C38899A52D670 /* Pods-Read and Tell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell.release.xcconfig"; path = "Target Support Files/Pods-Read and Tell/Pods-Read and Tell.release.xcconfig"; sourceTree = "<group>"; };
 		5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookDetailViewController.swift; sourceTree = "<group>"; };
+		5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedBookDetailViewController.swift; sourceTree = "<group>"; };
 		7749C737290F91B50029A91D /* CollectionScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionScreenViewController.swift; sourceTree = "<group>"; };
 		7749C739290F9CAA0029A91D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7749C73B290FA0000029A91D /* CollectionGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGridCell.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				294FC0B82912249D0086E231 /* LoginViewController.swift */,
 				294FC0BA29122B3D0086E231 /* SignupViewController.swift */,
 				5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */,
+				5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */,
 			);
 			path = "Read and Tell";
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				77C7CE802910A6C5003836B7 /* SearchScreenViewController.swift in Sources */,
 				89C21DBA2909E28D00B041DE /* BookGridCell.swift in Sources */,
 				294FC0BB29122B3D0086E231 /* SignupViewController.swift in Sources */,
+				5E2195732914779B001D259F /* FeaturedBookDetailViewController.swift in Sources */,
 				777FC57A2907B54300697B75 /* ViewController.swift in Sources */,
 				89C21DB82909E1D500B041DE /* HomeScreenViewController.swift in Sources */,
 				77C7CE822910A7D0003836B7 /* BookSearchCell.swift in Sources */,
