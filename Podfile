@@ -8,6 +8,7 @@ target 'Read and Tell' do
   # Pods for Read and Tell
   pod "AlamofireImage"
   pod "Parse"
+  pod "MessageInputBar"
 
 
   target 'Read and TellTests' do
