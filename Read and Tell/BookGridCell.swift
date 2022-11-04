@@ -2,7 +2,7 @@
 //  BookGridCell.swift
 //  Read and Tell
 //
-//  Created by PS101k on 10/26/22.
+//  Created by Joseph Siggia on 10/26/22.
 //
 
 import UIKit
