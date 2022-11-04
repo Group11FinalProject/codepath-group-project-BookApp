@@ -17,6 +17,8 @@
 		7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7749C737290F91B50029A91D /* CollectionScreenViewController.swift */; };
 		7749C73A290F9CAA0029A91D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7749C739290F9CAA0029A91D /* Assets.xcassets */; };
 		7749C73C290FA0000029A91D /* CollectionGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7749C73B290FA0000029A91D /* CollectionGridCell.swift */; };
+		776D297A2914D292003AF594 /* ReviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D29792914D292003AF594 /* ReviewsViewController.swift */; };
+		776D297C2914D4FB003AF594 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D297B2914D4FB003AF594 /* ReviewCell.swift */; };
 		777FC5762907B54300697B75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC5752907B54300697B75 /* AppDelegate.swift */; };
 		777FC5782907B54300697B75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC5772907B54300697B75 /* SceneDelegate.swift */; };
 		777FC57A2907B54300697B75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC5792907B54300697B75 /* ViewController.swift */; };
@@ -60,6 +62,8 @@
 		7749C737290F91B50029A91D /* CollectionScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionScreenViewController.swift; sourceTree = "<group>"; };
 		7749C739290F9CAA0029A91D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7749C73B290FA0000029A91D /* CollectionGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGridCell.swift; sourceTree = "<group>"; };
+		776D29792914D292003AF594 /* ReviewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsViewController.swift; sourceTree = "<group>"; };
+		776D297B2914D4FB003AF594 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		777FC5722907B54300697B75 /* Read and Tell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Read and Tell.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		777FC5752907B54300697B75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		777FC5772907B54300697B75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,16 +157,18 @@
 				7749C739290F9CAA0029A91D /* Assets.xcassets */,
 				777FC5832907B54500697B75 /* Info.plist */,
 				777FC57B2907B54300697B75 /* Main.storyboard */,
+				294FC0B82912249D0086E231 /* LoginViewController.swift */,
+				294FC0BA29122B3D0086E231 /* SignupViewController.swift */,
 				89C21DB72909E1D500B041DE /* HomeScreenViewController.swift */,
 				77C7CE7F2910A6C5003836B7 /* SearchScreenViewController.swift */,
 				7749C737290F91B50029A91D /* CollectionScreenViewController.swift */,
+				5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */,
+				5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */,
 				89C21DB92909E28D00B041DE /* BookGridCell.swift */,
 				7749C73B290FA0000029A91D /* CollectionGridCell.swift */,
 				77C7CE812910A7D0003836B7 /* BookSearchCell.swift */,
-				294FC0B82912249D0086E231 /* LoginViewController.swift */,
-				294FC0BA29122B3D0086E231 /* SignupViewController.swift */,
-				5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */,
-				5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */,
+				776D29792914D292003AF594 /* ReviewsViewController.swift */,
+				776D297B2914D4FB003AF594 /* ReviewCell.swift */,
 			);
 			path = "Read and Tell";
 			sourceTree = "<group>";
@@ -437,9 +443,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				77C7CE802910A6C5003836B7 /* SearchScreenViewController.swift in Sources */,
+				776D297C2914D4FB003AF594 /* ReviewCell.swift in Sources */,
 				89C21DBA2909E28D00B041DE /* BookGridCell.swift in Sources */,
 				294FC0BB29122B3D0086E231 /* SignupViewController.swift in Sources */,
 				5E2195732914779B001D259F /* FeaturedBookDetailViewController.swift in Sources */,
+				776D297A2914D292003AF594 /* ReviewsViewController.swift in Sources */,
 				777FC57A2907B54300697B75 /* ViewController.swift in Sources */,
 				89C21DB82909E1D500B041DE /* HomeScreenViewController.swift in Sources */,
 				77C7CE822910A7D0003836B7 /* BookSearchCell.swift in Sources */,

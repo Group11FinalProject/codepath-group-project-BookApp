@@ -178,7 +178,7 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
         let indexPath = searchTableView.indexPath(for: cell)!
-        let book = searchedBooks[indexPath.row]
+        let book = searchedBooks[indexPath.row - 1]["volumeInfo"] as! NSDictionary
         
         let detailsViewController = segue.destination as! SearchBookDetailViewController
         detailsViewController.book = book
