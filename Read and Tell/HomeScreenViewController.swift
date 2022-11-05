@@ -43,8 +43,45 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
                          
                          let results = dataDictionary["results"] as! [String:Any]
                          let categoryLists = results["lists"] as! [Any]
+                         
                          let firstCategory = categoryLists[0] as! [String:Any]
                          self.books = firstCategory["books"] as! [[String:Any]]
+                         let secondCategory = categoryLists[1] as! [String:Any]
+                         self.books.append(contentsOf: secondCategory["books"] as! [[String:Any]])
+                         let thirdCategory = categoryLists[2] as! [String:Any]
+                         self.books.append(contentsOf: thirdCategory["books"] as! [[String:Any]])
+                         let fourthCategory = categoryLists[3] as! [String:Any]
+                         self.books.append(contentsOf: fourthCategory["books"] as! [[String:Any]])
+                         let fifthCategory = categoryLists[4] as! [String:Any]
+                         self.books.append(contentsOf: fifthCategory["books"] as! [[String:Any]])
+                         let sixthCategory = categoryLists[5] as! [String:Any]
+                         self.books.append(contentsOf: sixthCategory["books"] as! [[String:Any]])
+                         let seventhCategory = categoryLists[6] as! [String:Any]
+                         self.books.append(contentsOf: seventhCategory["books"] as! [[String:Any]])
+                         let eighthCategory = categoryLists[7] as! [String:Any]
+                         self.books.append(contentsOf: eighthCategory["books"] as! [[String:Any]])
+                         let ninthCategory = categoryLists[8] as! [String:Any]
+                         self.books.append(contentsOf: ninthCategory["books"] as! [[String:Any]])
+                         let tenthCategory = categoryLists[9] as! [String:Any]
+                         self.books.append(contentsOf: tenthCategory["books"] as! [[String:Any]])
+                         let eleventhCategory = categoryLists[10] as! [String:Any]
+                         self.books.append(contentsOf: eleventhCategory["books"] as! [[String:Any]])
+                         let twelfthCategory = categoryLists[11] as! [String:Any]
+                         self.books.append(contentsOf: twelfthCategory["books"] as! [[String:Any]])
+                         let thirteenthCategory = categoryLists[12] as! [String:Any]
+                         self.books.append(contentsOf: thirteenthCategory["books"] as! [[String:Any]])
+                         let fourteenthCategory = categoryLists[13] as! [String:Any]
+                         self.books.append(contentsOf: fourteenthCategory["books"] as! [[String:Any]])
+                         let fifthteenthCategory = categoryLists[14] as! [String:Any]
+                         self.books.append(contentsOf: fifthteenthCategory["books"] as! [[String:Any]])
+                         let sixteenthCategory = categoryLists[15] as! [String:Any]
+                         self.books.append(contentsOf: sixteenthCategory["books"] as! [[String:Any]])
+                         let seventeenthCategory = categoryLists[16] as! [String:Any]
+                         self.books.append(contentsOf: seventeenthCategory["books"] as! [[String:Any]])
+                         let eighteenthCategory = categoryLists[17] as! [String:Any]
+                         self.books.append(contentsOf: eighteenthCategory["books"] as! [[String:Any]])
+                         
+                         
                          
                          self.bookCollectionView.reloadData()
                          //print(dataDictionary)

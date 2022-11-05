@@ -7,6 +7,7 @@
 
 import UIKit
 import AlamofireImage
+import Parse
 
 class SearchBookDetailViewController: UIViewController {
 
@@ -20,6 +21,9 @@ class SearchBookDetailViewController: UIViewController {
     @IBOutlet weak var star3: UIImageView!
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
+    
+    
+    
     
     
     var book: NSDictionary!
@@ -52,6 +56,30 @@ class SearchBookDetailViewController: UIViewController {
         synopsisLabel.text = book["description"] as? String
         
         getRating()
+    }
+    
+    
+    @IBAction func saveToCollection(_ sender: Any) {
+        let user = PFUser.current()!
+        
+        user.add(book, forKey: "bookCollection")
+        
+        user.saveInBackground { (success, error) in
+            if(success) {
+                print("book saved to collection")
+            }
+            else {
+                print("book not saved")
+            }
+        }
+    }
+    
+    
+    @IBAction func reviewButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "toReviewsSegue", sender: nil)
+        
+        
+        
     }
     
     func getRating() {
