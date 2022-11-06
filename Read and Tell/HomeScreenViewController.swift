@@ -9,48 +9,48 @@ import UIKit
 import AlamofireImage
 
 class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
+
     @IBOutlet weak var bookCollectionView: UICollectionView!
-    var books = [NSDictionary]()
+    var books = [[String:Any]]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         bookCollectionView.delegate = self
         bookCollectionView.dataSource = self
         
         let layout = bookCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
-        
+
         
         let width = (view.frame.size.width - layout.minimumInteritemSpacing) / 2
         
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+
+      
         
         let url = URL(string: "https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=iz8MAMr5DnmAbPApq1UYPyrGinGYebIP")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            // This will run when the network request returns
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
-                let results = dataDictionary["results"] as! NSDictionary
-                let categoryLists = results["lists"] as! [NSDictionary]
-                
-                for index in categoryLists.indices {
-                    let categoryElement = categoryLists[index]
-                    self.books.append(contentsOf: categoryElement["books"] as! [NSDictionary])
+                let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+                let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+                let task = session.dataTask(with: request) { (data, response, error) in
+                     // This will run when the network request returns
+                     if let error = error {
+                         print(error.localizedDescription)
+                     } else if let data = data {
+                         let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+                         
+                         let results = dataDictionary["results"] as! [String:Any]
+                         let categoryLists = results["lists"] as! [Any]
+                         let firstCategory = categoryLists[0] as! [String:Any]
+                         self.books = firstCategory["books"] as! [[String:Any]]
+                         
+                         self.bookCollectionView.reloadData()
+                         //print(dataDictionary)
+                     }
                 }
-                
-                self.bookCollectionView.reloadData()
-                //print(dataDictionary)
-            }
-        }
-        task.resume()
+                task.resume()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,9 +59,9 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = bookCollectionView.dequeueReusableCell(withReuseIdentifier: "BookGridCell", for: indexPath) as! BookGridCell
-        
+       
         let book = books[indexPath.item]
-        
+               
         let bookTitle = book["title"] as! String
         cell.bookTitleLabel.text = bookTitle
         
@@ -71,18 +71,18 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
         //let size = CGSize(width: imageWidth, height: imageHeight)
         let bookImageUrl = URL(string: bookImage)
         /*
-         if let data = try? Data(contentsOf: bookImageUrl!) {
-         let image: UIImage = UIImage(data: data)!
-         let scaledImage = image.af.imageAspectScaled(toFill: size)
-         cell.bookCoverImage.image = scaledImage
-         }
-         */
+            if let data = try? Data(contentsOf: bookImageUrl!) {
+                let image: UIImage = UIImage(data: data)!
+                let scaledImage = image.af.imageAspectScaled(toFill: size)
+                cell.bookCoverImage.image = scaledImage
+            }
+        */
         cell.bookCoverImage.af.setImage(withURL: bookImageUrl!)
         
         /*
-         cell.addButtonTapAction = {
-         self.performSegue(withIdentifier: "your segue", sender: self)
-         }
+        cell.addButtonTapAction = {
+                    self.performSegue(withIdentifier: "your segue", sender: self)
+                }
          */
         return cell
     }
