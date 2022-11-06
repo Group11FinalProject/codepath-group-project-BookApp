@@ -7,6 +7,7 @@
 
 import UIKit
 import AlamofireImage
+import Parse
 
 class CollectionScreenViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -15,7 +16,14 @@ class CollectionScreenViewController: UIViewController, UICollectionViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myBooksCollectionView.delegate = self
+        myBooksCollectionView.dataSource = self
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -24,7 +32,23 @@ class CollectionScreenViewController: UIViewController, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let user = PFUser.current()!
+        let myBookCollection = user["bookCollection"]
+        
+       
+        
         let cell = myBooksCollectionView.dequeueReusableCell(withReuseIdentifier: "CollectionGridCell", for: indexPath) as! CollectionGridCell
+        
+        let imageLinksArray = user["imageLinks"] as? NSDictionary
+        if imageLinksArray != nil {
+            let bookCoverImage = imageLinksArray?["thumbnail"] as! String
+            let bookCoverImageUrl = URL(string: bookCoverImage)
+            cell.bookCoverImage.af.setImage(withURL: bookCoverImageUrl!)
+        } else {
+            cell.bookCoverImage.image = UIImage(named: "book_cover_unavailable")
+        }
+        
+        /*
         
         // Configure the cell
         cell.layer.cornerRadius = 15.0
@@ -40,7 +64,9 @@ class CollectionScreenViewController: UIViewController, UICollectionViewDataSour
         */
          
         cell.bookCoverImage.image = UIImage(named: "and then there were none")
-        
+        */
         return cell
+         
+         
     }
 }

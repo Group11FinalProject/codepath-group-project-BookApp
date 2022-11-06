@@ -9,7 +9,6 @@ import UIKit
 
 class BookGridCell: UICollectionViewCell {
     
-    
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookCoverImage: UIImageView!
     
