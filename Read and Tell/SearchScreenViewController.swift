@@ -27,7 +27,7 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
         self.searchTableView.estimatedRowHeight = 210
         
         searchBar.inputTextView.placeholder = "Search any book by title, author or genre!"
-        searchBar.sendButton.title = "Search"
+        searchBar.sendButton.image = UIImage(systemName: "magnifyingglass")
         searchBar.delegate = self
         
         searchTableView.keyboardDismissMode = .interactive
