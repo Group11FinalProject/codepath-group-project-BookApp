@@ -11,26 +11,11 @@ import MessageInputBar
 
 class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MessageInputBarDelegate {
     
-    
-    
-    
     @IBOutlet weak var reviewTableView: UITableView!
-    
-    
     let reviewBar = MessageInputBar()
     var showsReviewBar = false
-    
     var reviews = [PFObject]()
-    
-    override var inputAccessoryView: UIView? {
-        return reviewBar
-    }
-    
-    override var canBecomeFirstResponder: Bool {
-        return showsReviewBar
-    }
-    
-    
+    let cell = UITableViewCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +43,14 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    override var inputAccessoryView: UIView? {
+        return reviewBar
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return showsReviewBar
+    }
+    
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         let review = PFObject(className: "Reviews")
         
@@ -66,14 +59,13 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         
         review.saveInBackground { (success, error) in
             if (success) {
-                print("reviewSaved")
+                print("review saved")
             }
             
             else {
                 print("error saving review")
             }
         }
-        
         
         reviewTableView.reloadData()
         
@@ -84,42 +76,53 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let query = PFQuery(className: "Reviews")
+        query.includeKeys(["author", "text"])
+        query.order(byDescending: "createdAt")
+        query.limit = 10
+        
+        query.findObjectsInBackground { (reviews, error) in
+            if reviews != nil {
+                self.reviews = reviews!
+                self.reviewTableView.reloadData()
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reviews.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if (indexPath.row < reviews.count) {
-            reviewTableView.rowHeight = 150
-            let cell = reviewTableView.dequeueReusableCell(withIdentifier: "ReviewCell") as! ReviewCell
-            
-            return cell
-            
-        }
-        
-        else {
+        if indexPath.row == 0 {
             reviewTableView.rowHeight = 100
             let cell = reviewTableView.dequeueReusableCell(withIdentifier: "AddReviewCell")!
             
             return cell
+        } else if indexPath.row <= reviews.count {
+            reviewTableView.rowHeight = 150
+            let cell = reviewTableView.dequeueReusableCell(withIdentifier: "ReviewCell") as! ReviewCell
+            let review = reviews[indexPath.row - 1]
+            
+            let user = review["author"] as! PFUser
+            cell.usernameLabel.text = user.username
+            cell.userReviewLabel.text = (review["text"] as! String)
+            
+            return cell
         }
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.row == reviews.count) {
+        if(indexPath.row == 0) {
             showsReviewBar = true
             becomeFirstResponder()
             reviewBar.inputTextView.becomeFirstResponder()
-            
         }
     }
-    
-    
-    
-    
-    
-    
     
     /*
      // MARK: - Navigation

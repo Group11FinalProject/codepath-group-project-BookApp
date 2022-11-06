@@ -74,12 +74,8 @@ class SearchBookDetailViewController: UIViewController {
         }
     }
     
-    
     @IBAction func reviewButton(_ sender: Any) {
         self.performSegue(withIdentifier: "toReviewsSegue", sender: nil)
-        
-        
-        
     }
     
     func getRating() {

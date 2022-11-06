@@ -10,18 +10,11 @@ import UIKit
 class FeaturedBookDetailViewController: UIViewController {
 
     @IBOutlet weak var featuredBookImageView: UIImageView!
-    
-    
     @IBOutlet weak var featuredBookTitleLabel: UILabel!
-    
-    
     @IBOutlet weak var featuredBookAuthorLabel: UILabel!
-    
-    
     @IBOutlet weak var featuredBookDescriptionLabel: UILabel!
     
-    var book: [String:Any]!
-    
+    var book: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +22,6 @@ class FeaturedBookDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     /*
     // MARK: - Navigation
 
