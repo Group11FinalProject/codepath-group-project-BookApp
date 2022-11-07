@@ -35,35 +35,6 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        /*
-        let url = URL(string: "https://www.googleapis.com/books/v1/volumes?q=and-then-there-were-none&key=AIzaSyBPoICjs3B7XKBQ5ou-eo3n10pgNTecQG0")!
-        let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
-        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
-        let task = session.dataTask(with: request) { (data, response, error) in
-            // This will run when the network request returns
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let data = data {
-                let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                
-                
-                //Replace NSDictionary with NSArray
-                self.searchedBooks = dataDictionary["items"] as! [NSDictionary]
-                
-                /*
-                 for item in items {
-                 //self.searchedBooks.append((item as? NSDictionary)!)
-                 self.searchedBooks.append(item as NSDictionary)
-                 }
-                 */
-                
-                //self.searchedBooks = items
-                self.searchTableView.reloadData()
-                //print(self.searchedBooks)
-            }
-        }
-        task.resume()
-        */
     }
     
     override func viewDidAppear(_ animated: Bool) {

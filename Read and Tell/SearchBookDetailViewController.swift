@@ -22,10 +22,6 @@ class SearchBookDetailViewController: UIViewController {
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
-    
-    
-    
-    
     var book: NSDictionary!
     
     override func viewDidLoad() {
@@ -61,10 +57,17 @@ class SearchBookDetailViewController: UIViewController {
     
     @IBAction func saveToCollection(_ sender: Any) {
         let user = PFUser.current()!
+        let bookObject = PFObject(className: "Books")
         
-        user.add(book, forKey: "bookCollection")
+        bookObject["user"] = user
+        bookObject["title"] = book["title"]
         
-        user.saveInBackground { (success, error) in
+        let imageLinksArray = book["imageLinks"] as? NSDictionary
+        bookObject["imageLink"] = imageLinksArray?["thumbnail"] as! String
+
+        //user.add(collection, forKey: "bookCollection")
+        
+        bookObject.saveInBackground { (success, error) in
             if(success) {
                 print("book saved to collection")
             }

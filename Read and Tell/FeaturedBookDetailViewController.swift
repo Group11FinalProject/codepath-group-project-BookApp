@@ -13,28 +13,14 @@ class FeaturedBookDetailViewController: UIViewController {
     @IBOutlet weak var featuredBookImageView: UIImageView!
     @IBOutlet weak var featuredBookTitleLabel: UILabel!
     @IBOutlet weak var featuredBookAuthorLabel: UILabel!
-    
     @IBOutlet weak var featuredBookReleaseYear: UILabel!
-    
-    
     @IBOutlet weak var featuredBookDescriptionLabel: UILabel!
-    
-    
     @IBOutlet weak var featuredBookStar1: UIImageView!
-    
     @IBOutlet weak var featuredBookStar2: UIImageView!
-    
     @IBOutlet weak var featuredBookStar3: UIImageView!
-    
-    
-   
     @IBOutlet weak var featuredBookStar4: UIImageView!
-    
-    
     @IBOutlet weak var featuredBookStar5: UIImageView!
-    
-    
-    
+
     var book: NSDictionary!
     
     override func viewDidLoad() {
@@ -44,9 +30,8 @@ class FeaturedBookDetailViewController: UIViewController {
     }
     
     @IBAction func featuredBookSaveToCollection(_ sender: Any) {
-        
         let user = PFUser.current()!
-        
+
         user.add(book, forKey: "bookCollection")
         
         user.saveInBackground { (success, error) in
@@ -58,8 +43,7 @@ class FeaturedBookDetailViewController: UIViewController {
             }
         }
     }
-    
-    
+
     @IBAction func featuredBookReviewButton(_ sender: Any) {
         self.performSegue(withIdentifier: "fromFeaturedToReviewsSegue", sender: nil)
     }
@@ -68,9 +52,7 @@ class FeaturedBookDetailViewController: UIViewController {
         let weekCount = book["averageRating"] as? Double ?? 0
         
     }
-    
-    
-    
+
     /*
     // MARK: - Navigation
 
