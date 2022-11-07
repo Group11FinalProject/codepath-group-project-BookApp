@@ -930,12 +930,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-<<<<<<< Updated upstream
         <segue reference="hWd-VQ-eRH"/>
-=======
         <segue reference="fVW-fN-Pkk"/>
         <segue reference="2mW-Df-aoZ"/>
->>>>>>> Stashed changes
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
