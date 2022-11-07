@@ -11,6 +11,8 @@
 		294FC0B92912249D0086E231 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294FC0B82912249D0086E231 /* LoginViewController.swift */; };
 		294FC0BB29122B3D0086E231 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294FC0BA29122B3D0086E231 /* SignupViewController.swift */; };
 		3231C8ABACF3553686ABF66E /* Pods_Read_and_Tell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF36CD35202CA904D35BFBA0 /* Pods_Read_and_Tell.framework */; };
+		4C63C202291893C600DC1A9F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C63C201291893C600DC1A9F /* CustomTextField.swift */; };
+		4C63C204291896FD00DC1A9F /* LogInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C63C203291896FD00DC1A9F /* LogInButton.swift */; };
 		4C841481291793DE00150E46 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C841480291793DE00150E46 /* ProfileViewController.swift */; };
 		4C84148329179FA500150E46 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84148229179FA500150E46 /* SettingsViewController.swift */; };
 		5E14373B291383CD008D2ACB /* SearchBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */; };
@@ -59,6 +61,8 @@
 		294FC0BA29122B3D0086E231 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		2FC5905E6DB9E40CD15426B5 /* Pods-Read and TellTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and TellTests.debug.xcconfig"; path = "Target Support Files/Pods-Read and TellTests/Pods-Read and TellTests.debug.xcconfig"; sourceTree = "<group>"; };
 		40396BFA8E8C38899A52D670 /* Pods-Read and Tell.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell.release.xcconfig"; path = "Target Support Files/Pods-Read and Tell/Pods-Read and Tell.release.xcconfig"; sourceTree = "<group>"; };
+		4C63C201291893C600DC1A9F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		4C63C203291896FD00DC1A9F /* LogInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInButton.swift; sourceTree = "<group>"; };
 		4C841480291793DE00150E46 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4C84148229179FA500150E46 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookDetailViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +165,8 @@
 				7749C739290F9CAA0029A91D /* Assets.xcassets */,
 				777FC5832907B54500697B75 /* Info.plist */,
 				777FC57B2907B54300697B75 /* Main.storyboard */,
+				4C63C203291896FD00DC1A9F /* LogInButton.swift */,
+				4C63C201291893C600DC1A9F /* CustomTextField.swift */,
 				294FC0B82912249D0086E231 /* LoginViewController.swift */,
 				294FC0BA29122B3D0086E231 /* SignupViewController.swift */,
 				89C21DB72909E1D500B041DE /* HomeScreenViewController.swift */,
@@ -456,6 +462,8 @@
 				777FC57A2907B54300697B75 /* ViewController.swift in Sources */,
 				4C841481291793DE00150E46 /* ProfileViewController.swift in Sources */,
 				89C21DB82909E1D500B041DE /* HomeScreenViewController.swift in Sources */,
+				4C63C204291896FD00DC1A9F /* LogInButton.swift in Sources */,
+				4C63C202291893C600DC1A9F /* CustomTextField.swift in Sources */,
 				77C7CE822910A7D0003836B7 /* BookSearchCell.swift in Sources */,
 				5E14373B291383CD008D2ACB /* SearchBookDetailViewController.swift in Sources */,
 				777FC5762907B54300697B75 /* AppDelegate.swift in Sources */,

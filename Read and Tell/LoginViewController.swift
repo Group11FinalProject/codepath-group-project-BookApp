@@ -10,9 +10,11 @@ import Parse
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var usernameText: UITextField!
     
-    @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var usernameText: CustomTextField!
+    
+    @IBOutlet weak var passwordText: CustomTextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
