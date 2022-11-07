@@ -15,16 +15,36 @@ class FeaturedBookDetailViewController: UIViewController {
     @IBOutlet weak var featuredBookAuthorLabel: UILabel!
     @IBOutlet weak var featuredBookReleaseYear: UILabel!
     @IBOutlet weak var featuredBookDescriptionLabel: UILabel!
-    @IBOutlet weak var featuredBookStar1: UIImageView!
-    @IBOutlet weak var featuredBookStar2: UIImageView!
-    @IBOutlet weak var featuredBookStar3: UIImageView!
-    @IBOutlet weak var featuredBookStar4: UIImageView!
-    @IBOutlet weak var featuredBookStar5: UIImageView!
+    
+
+    @IBOutlet weak var featuredBooksWeeksLabel: UILabel!
+    
+    
 
     var book: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        featuredBookTitleLabel.text = book["title"] as? String
+        
+        featuredBookAuthorLabel.text = book["author"] as? String
+        
+        let featuredBookImage = book["book_image"] as! String
+        
+        let featuredBookImageUrl = URL(string: featuredBookImage)
+        
+        
+        featuredBookImageView.af.setImage(withURL: featuredBookImageUrl!)
+        
+        featuredBookDescriptionLabel.text = book["description"] as? String
+        
+        let numWeeks = (book["weeks_on_list"])!
+        
+        featuredBooksWeeksLabel.text = "This book has been on Top Sellers for \(numWeeks) weeks!"
+        
+        
+        
 
         // Do any additional setup after loading the view.
     }
