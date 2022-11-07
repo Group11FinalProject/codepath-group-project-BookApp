@@ -31,11 +31,11 @@ Users can scroll through trending/new books on the homepage and be able to selec
 - [x] User can log in
 - [x] User can scroll through trending books page
 - [x] User can search for specific book titles
-- [ ] User can select book to get more information
-- [ ] User can view book information and ratings
-- [ ] User can save book titles
+- [x] User can select book to get more information
+- [x] User can view book information and ratings
+- [x] User can save book titles
 - [x] User can navigate between tabs in tab bar
-- [ ] User can view profile
+- [x] User can view profile
 - [x] User can view saved book titles list
 - [ ] User can view Book's discussion board
 
