@@ -11,29 +11,23 @@ import Parse
 
 import SwiftUI
 
+import AlamofireImage
+
 class ProfileViewController: UIViewController {
     
-    
-    @IBOutlet weak var ProfileImageView: UIImageView!
-    
-    @IBAction func logoutButton(_ sender: Any) {
-        PFUser.logOut()
-        
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        
-        let loginViewController = main.instantiateViewController(identifier: "LoginViewController")
-        
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let delegate = windowScene.delegate as? SceneDelegate else { return }
-        
-        delegate.window?.rootViewController = loginViewController
-    }
-    
+        @IBOutlet weak var theContainer : UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        }
+        
+        
+         SwiftUI imageView code
+                let childView = UIHostingController(rootView: ProfileViewSetup())
+                addChild(childView)
+                childView.view.frame = theContainer.bounds
+                theContainer.addSubview(childView.view)
     }
+    
+}
 
