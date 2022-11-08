@@ -15,6 +15,8 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var ProfileImageView: UIImageView!
     
+
+    
     @IBAction func logoutButton(_ sender: Any) {
         PFUser.logOut()
         
@@ -31,8 +33,10 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        ProfileImageView.layer.borderWidth = 1
+        ProfileImageView.layer.masksToBounds = false
+        ProfileImageView.layer.borderColor = UIColor.black.cgColor
+        ProfileImageView.layer.cornerRadius = ProfileImageView.frame.height/3
+        ProfileImageView.clipsToBounds = true
+            }
         }
-    }
-
