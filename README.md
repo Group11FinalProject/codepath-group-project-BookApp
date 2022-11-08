@@ -46,7 +46,7 @@ Users can scroll through trending/new books on the homepage and be able to selec
 * User can message friends
 * User can edit their saved list
 * User can add books to a "Have Read" list
-* User can have access to settings
+- [x] User can have access to settings
 
 ### 2. Screen Archetypes
 
@@ -127,16 +127,15 @@ Users can scroll through trending/new books on the homepage and be able to selec
 ### Networking
  - Saved Books Screen: queries all book titles saved by user
 ```swift
-let query = PFQuery(className:"books")
-query.whereKey("userNameId", equalTo: currentUser)
-query.findObjectsInBackground { (books: [PFObject]?, error: Error?) in
-   if let error = error { 
-      print(error.localizedDescription)
-   } else if let books = books {
-      print("Successfully retrieved \(books.count) books.")
-  // TODO: Do something with books...
-   }
-}
+        let query = PFQuery(className:"Books")
+        query.whereKey("user", equalTo: user)
+        
+        query.findObjectsInBackground { (myBooks, error) in
+            if myBooks != nil {
+                self.myBooks = myBooks!
+                self.myBooksCollectionView.reloadData()
+            }
+        }
 ```
 
 - [Create basic snippets for each Parse network request]
