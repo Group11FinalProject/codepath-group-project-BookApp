@@ -13,7 +13,6 @@ class FeaturedBookDetailViewController: UIViewController {
     @IBOutlet weak var featuredBookImageView: UIImageView!
     @IBOutlet weak var featuredBookTitleLabel: UILabel!
     @IBOutlet weak var featuredBookAuthorLabel: UILabel!
-    @IBOutlet weak var featuredBookReleaseYear: UILabel!
     @IBOutlet weak var featuredBookDescriptionLabel: UILabel!
     
 
@@ -51,10 +50,16 @@ class FeaturedBookDetailViewController: UIViewController {
     
     @IBAction func featuredBookSaveToCollection(_ sender: Any) {
         let user = PFUser.current()!
-
-        user.add(book, forKey: "bookCollection")
+        let featuredBookObject = PFObject(className: "Books")
         
-        user.saveInBackground { (success, error) in
+        featuredBookObject["user"] = user
+        featuredBookObject["title"] = book["title"]
+        featuredBookObject["imageLink"] = book["book_image"]
+        
+        
+
+        
+        featuredBookObject.saveInBackground { (success, error) in
             if(success) {
                 print("book saved to collection")
             }
@@ -68,11 +73,7 @@ class FeaturedBookDetailViewController: UIViewController {
         self.performSegue(withIdentifier: "fromFeaturedToReviewsSegue", sender: nil)
     }
         
-    func getWeeks() {
-        let weekCount = book["averageRating"] as? Double ?? 0
-        
-    }
-
+    
     /*
     // MARK: - Navigation
 

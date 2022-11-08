@@ -77,9 +77,7 @@ class SearchBookDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func reviewButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "toReviewsSegue", sender: nil)
-    }
+   
     
     func getRating() {
         let starCount = book["averageRating"] as? Double ?? 0
@@ -153,16 +151,33 @@ class SearchBookDetailViewController: UIViewController {
             star5.image = UIImage(systemName: "star")
         }
     }
-    /*
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UITableViewCell
-        let indexPath = searchTableView.indexPath(for: cell)!
-        let book = searchedBooks[indexPath.row - 1]["volumeInfo"] as! NSDictionary
+        let button = sender as! UIButton
+        //let indexPath = searchTableView.indexPath(for: cell)!
         
-        let detailsViewController = segue.destination as! SearchBookDetailViewController
-        detailsViewController.book = book
+        let bookCopyObject = PFObject(className: "Books")
         
-        searchTableView.deselectRow(at: indexPath, animated: true)
+        //bookCopyObject["id"] = book["id"]
+        //let newBook = book
+        bookCopyObject["title"] = book["title"]
+        
+        
+        bookCopyObject.saveInBackground { (success, error) in
+            if(success) {
+                print("book saved")
+            }
+            else {
+                print("book not saved")
+            }
+        }
+       
+        
+        let reviewsViewController = segue.destination as! ReviewsContentViewController
+        reviewsViewController.newBook = bookCopyObject
+        //reviewsViewController.newBook = newBook
+        
+        //searchTableView.deselectRow(at: indexPath, animated: true)
     }
-     */
+     
 }

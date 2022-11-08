@@ -15,6 +15,7 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
     let reviewBar = MessageInputBar()
     var showsReviewBar = false
     var reviews = [PFObject]()
+    var newBook: PFObject?
     let cell = UITableViewCell()
     
     override func viewDidLoad() {
@@ -30,11 +31,15 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         
         reviewTableView.keyboardDismissMode = .interactive
         
+        
+        
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         // Do any additional setup after loading the view.
     }
+    
+   
     
     @objc func keyboardWillBeHidden(note: Notification) {
         reviewBar.inputTextView.text = nil
@@ -53,9 +58,13 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
     
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         let review = PFObject(className: "Reviews")
+        let bookCopyObject = PFObject(className: "Books")
         
         review["text"] = text
         review["author"] = PFUser.current()!
+        review["book"] = bookCopyObject
+        
+        bookCopyObject["reviews"] = reviews
         
         review.saveInBackground { (success, error) in
             if (success) {
@@ -80,6 +89,7 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidAppear(animated)
         
         let query = PFQuery(className: "Reviews")
+        query.whereKey("book", equalTo: newBook)
         query.includeKeys(["author", "text"])
         query.order(byDescending: "createdAt")
         query.limit = 10
