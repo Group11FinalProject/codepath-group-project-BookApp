@@ -112,5 +112,113 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F13E6E9-7831-412B-8FA6-683614019962"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Read and Tell/FeaturedBookDetailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "FeaturedBookDetailViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "1F13E6E9-7831-412B-8FA6-683614019962 - 5615db720434c0c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Read_and_Tell.FeaturedBookDetailViewController.featuredBookReleaseYear.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Read and Tell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephsiggia/Desktop/codepath-group-project-BookApp/Read%20and%20Tell/FeaturedBookDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "1F13E6E9-7831-412B-8FA6-683614019962 - 5615db720434c0c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Read_and_Tell.FeaturedBookDetailViewController.featuredBookReleaseYear.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Read and Tell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephsiggia/Desktop/codepath-group-project-BookApp/Read%20and%20Tell/FeaturedBookDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "1F13E6E9-7831-412B-8FA6-683614019962 - 60efafe7ac7411da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Read_and_Tell.FeaturedBookDetailViewController.featuredBookReleaseYear.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "Read and Tell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephsiggia/Desktop/codepath-group-project-BookApp/Read%20and%20Tell/FeaturedBookDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "1F13E6E9-7831-412B-8FA6-683614019962 - 485edcb2fb6f9863"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Read_and_Tell.FeaturedBookDetailViewController.featuredBookReleaseYear.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Read and Tell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephsiggia/Desktop/codepath-group-project-BookApp/Read%20and%20Tell/FeaturedBookDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "1F13E6E9-7831-412B-8FA6-683614019962 - dd5976331c27cea7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Read_and_Tell.FeaturedBookDetailViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Read_and_Tell.FeaturedBookDetailViewController"
+                  moduleName = "Read and Tell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephsiggia/Desktop/codepath-group-project-BookApp/Read%20and%20Tell/FeaturedBookDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "252">
+               </Location>
+               <Location
+                  uuid = "1F13E6E9-7831-412B-8FA6-683614019962 - a9ddcd3cfa6b8b44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Read_and_Tell.FeaturedBookDetailViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Read_and_Tell.FeaturedBookDetailViewController&gt;"
+                  moduleName = "Read and Tell"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/josephsiggia/Desktop/codepath-group-project-BookApp/Read%20and%20Tell/FeaturedBookDetailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "228">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

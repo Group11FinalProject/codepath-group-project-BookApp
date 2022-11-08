@@ -15,10 +15,15 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
     let reviewBar = MessageInputBar()
     var showsReviewBar = false
     var reviews = [PFObject]()
+    var bookReviews: NSDictionary!
     let cell = UITableViewCell()
+    let myRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myRefreshControl.addTarget(self, action: #selector(onRefresh), for: UIControl.Event.valueChanged)
+        reviewTableView.insertSubview(myRefreshControl, at: 0)
         
         reviewBar.inputTextView.placeholder = "Add a review..."
         reviewBar.sendButton.image = UIImage(systemName: "pencil.line")
@@ -32,8 +37,19 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         
         let center = NotificationCenter.default
         center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        // Do any additional setup after loading the view.
+    }
+    
+    //onRefresh() and run() functions are for the refreshing feature
+    @objc func onRefresh() {
+        run(after: 1.5) {
+            self.myRefreshControl.endRefreshing()
+            self.reviewTableView.reloadData()
+        }
+    }
+    
+    func run(after wait: TimeInterval, closure: @escaping () -> Void) {
+        let queue = DispatchQueue.main
+        queue.asyncAfter(deadline: DispatchTime.now() + wait, execute: closure)
     }
     
     @objc func keyboardWillBeHidden(note: Notification) {
@@ -56,7 +72,12 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         
         review["text"] = text
         review["author"] = PFUser.current()!
+        review["title"] = bookReviews["title"]
         
+        let industryIdentifierArray = bookReviews["industryIdentifiers"] as? [NSDictionary]
+        let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+        review["identifier"] = industryIndentifier
+
         review.saveInBackground { (success, error) in
             if (success) {
                 print("review saved")
@@ -74,12 +95,17 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         becomeFirstResponder()
         reviewBar.inputTextView.resignFirstResponder()
         
+        viewDidAppear(true)
+        
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let industryIdentifierArray = bookReviews["industryIdentifiers"] as? [NSDictionary]
+        let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+        
         let query = PFQuery(className: "Reviews")
+        query.whereKey("identifier", equalTo: industryIndentifier)
         query.includeKeys(["author", "text"])
         query.order(byDescending: "createdAt")
         query.limit = 10
@@ -90,7 +116,10 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
                 self.reviewTableView.reloadData()
             }
         }
+        reviewTableView.reloadData()
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reviews.count + 1
@@ -133,5 +162,4 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
      // Pass the selected object to the new view controller.
      }
      */
-    
 }
