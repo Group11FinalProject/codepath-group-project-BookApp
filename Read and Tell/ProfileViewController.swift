@@ -12,8 +12,7 @@ import Parse
 import SwiftUI
 
 class ProfileViewController: UIViewController {
-    
-    
+
     @IBOutlet weak var ProfileImageView: UIImageView!
     
     @IBAction func logoutButton(_ sender: Any) {

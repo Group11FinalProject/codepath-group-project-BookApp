@@ -76,9 +76,7 @@ class SearchBookDetailViewController: UIViewController {
             }
         }
     }
-    
-   
-    
+
     func getRating() {
         let starCount = book["averageRating"] as? Double ?? 0
         
@@ -153,31 +151,12 @@ class SearchBookDetailViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let button = sender as! UIButton
-        //let indexPath = searchTableView.indexPath(for: cell)!
-        
-        let bookCopyObject = PFObject(className: "Books")
-        
-        //bookCopyObject["id"] = book["id"]
-        //let newBook = book
-        bookCopyObject["title"] = book["title"]
-        
-        
-        bookCopyObject.saveInBackground { (success, error) in
-            if(success) {
-                print("book saved")
-            }
-            else {
-                print("book not saved")
-            }
-        }
-       
+        //let button = sender as! UIButton
+        let bookReviews = book!
         
         let reviewsViewController = segue.destination as! ReviewsContentViewController
-        reviewsViewController.newBook = bookCopyObject
-        //reviewsViewController.newBook = newBook
+        reviewsViewController.bookReviews = bookReviews
         
-        //searchTableView.deselectRow(at: indexPath, animated: true)
     }
      
 }
