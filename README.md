@@ -100,22 +100,23 @@ Users can scroll through trending/new books on the homepage and be able to selec
 ### Models
 #### Book
 
-   | Property            | Type     | Description |
-   | ------------------- | -------- | ------------|
-   | bookId              | String   | unique id for the book (default field) |
-   | authorName          | String   | author of book |
-   | bookCoverImage      | File     | image of book cover |
-   | bookTitle           | String   | title of the book |
-   | bookDescriptionText | String   | book synopsis |
-   | recommendationsCount| Int      | number of people recommending the book |
-   | yearOfRelease       | Int      | year the book was released |
-   | bookGenre           | String   | genre of the book |
+   | Property            | Type            | Description |
+   | ------------------- | --------------- | ------------|
+   | bookId              | String          | unique id for the book (default field) |
+   | authorName          | String          | author of book |
+   | bookCoverImage      | String          | image of book cover |
+   | bookTitle           | String          | title of the book |
+   | bookDescriptionText | String          | book synopsis |
+   | recommendationsCount| Int             | number of people recommending the book |
+   | yearOfRelease       | Int             | year the book was released |
+   | bookGenre           | String          | genre of the book |
+   | user                | Pointer to User |book associated to registered User |
    
 #### User
 
    | Property      | Type           | Description |
    | ------------- | --------       | ------------|
-   | usernameId    | String         | unique id for the user's account (default field) |
+   | username      | String         | unique id for the user's account (default field) |
    | userEmail     | String         | email linked to user's account |
    | password      | String         | user's password |
    | profileImage  | File           | profile image for user |
@@ -125,8 +126,9 @@ Users can scroll through trending/new books on the homepage and be able to selec
    | groupCount    | Int            | number of groups that user is in |
    
 ### Networking
- - Saved Books Screen: queries all book titles saved by user
+ - Collection Screen: queries all book titles saved by current logged in user
 ```swift
+        let user = PFUser.current()!
         let query = PFQuery(className:"Books")
         query.whereKey("user", equalTo: user)
         
@@ -137,9 +139,39 @@ Users can scroll through trending/new books on the homepage and be able to selec
             }
         }
 ```
+ - Reviews Screen: Create a new Review object for a selected book
+```swift
+ let review = PFObject(className: "Reviews")
+        
+        review["text"] = text
+        review["author"] = PFUser.current()!
+        review["title"] = bookReviews["title"]
+        
+        let industryIdentifierArray = bookReviews["industryIdentifiers"] as? [NSDictionary]
+        let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+        review["identifier"] = industryIndentifier
 
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+        review.saveInBackground { (success, error) in
+            if (success) {
+                print("review saved")
+            }
+            
+            else {
+                print("error saving review")
+            }
+        }
+        
+        reviewTableView.reloadData()
+        
+        reviewBar.inputTextView.text = nil
+        showsReviewBar = false
+        becomeFirstResponder()
+        reviewBar.inputTextView.resignFirstResponder()
+```
+
+Sprint 3 = GIF Walkthrough
+
+![](https://github.com/Group11FinalProject/codepath-group-project-BookApp/blob/main/milestone_3.gif)
 
 Sprint 1 - GIF Walkthrough
 
