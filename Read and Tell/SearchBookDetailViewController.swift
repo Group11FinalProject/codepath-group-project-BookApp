@@ -152,11 +152,24 @@ class SearchBookDetailViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //let button = sender as! UIButton
+        /*
         let bookReviews = book!
         
         let reviewsViewController = segue.destination as! ReviewsContentViewController
         reviewsViewController.bookReviews = bookReviews
+        */
         
+        if segue.identifier == "toReviews" {
+            
+            let searchedBook = book!
+            let reviewsViewController = segue.destination as! ReviewsContentViewController
+            reviewsViewController.bookReviews = searchedBook
+            
+        } else {
+            
+            let searchedBook = book!
+            let discussionViewController = segue.destination as! DiscussionContentViewController
+            discussionViewController.bookDiscussion = searchedBook
+        }
     }
-     
 }

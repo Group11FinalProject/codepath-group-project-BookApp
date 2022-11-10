@@ -80,20 +80,11 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
             } else if let data = data {
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
                 
-                //Replace NSDictionary with NSArray
                 self.searchedBooks.removeAll()
                 self.searchedBooks = dataDictionary["items"] as! [NSDictionary]
                 
-                /*
-                 for item in items {
-                 //self.searchedBooks.append((item as? NSDictionary)!)
-                 self.searchedBooks.append(item as NSDictionary)
-                 }
-                 */
-                
-                //self.searchedBooks = items
+
                 self.searchTableView.reloadData()
-                //print(self.searchedBooks)
             }
         }
         task.resume()

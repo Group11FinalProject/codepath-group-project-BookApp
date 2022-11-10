@@ -14,26 +14,21 @@ class FeaturedBookDetailViewController: UIViewController {
     @IBOutlet weak var featuredBookTitleLabel: UILabel!
     @IBOutlet weak var featuredBookAuthorLabel: UILabel!
     @IBOutlet weak var featuredBookDescriptionLabel: UILabel!
-    
-
     @IBOutlet weak var featuredBooksWeeksLabel: UILabel!
+    @IBOutlet weak var featuredBookThumbsDown: UIImageView!
+    @IBOutlet weak var featuredBooksThumbsUp: UIImageView!
+    @IBOutlet weak var featuredBookThumbsDownNumber: UILabel!
+    @IBOutlet weak var featuredBooksThumbsUpNumber: UILabel!
     
-    
-
     var book: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         featuredBookTitleLabel.text = book["title"] as? String
-        
         featuredBookAuthorLabel.text = book["author"] as? String
-        
         let featuredBookImage = book["book_image"] as! String
-        
         let featuredBookImageUrl = URL(string: featuredBookImage)
-        
-        
         featuredBookImageView.af.setImage(withURL: featuredBookImageUrl!)
         
         featuredBookDescriptionLabel.text = book["description"] as? String
@@ -41,9 +36,6 @@ class FeaturedBookDetailViewController: UIViewController {
         let numWeeks = (book["weeks_on_list"])!
         
         featuredBooksWeeksLabel.text = "This book has been on Top Sellers for \(numWeeks) weeks!"
-        
-        
-        
 
         // Do any additional setup after loading the view.
     }
@@ -56,9 +48,6 @@ class FeaturedBookDetailViewController: UIViewController {
         featuredBookObject["title"] = book["title"]
         featuredBookObject["imageLink"] = book["book_image"]
         
-        
-
-        
         featuredBookObject.saveInBackground { (success, error) in
             if(success) {
                 print("book saved to collection")
@@ -68,11 +57,22 @@ class FeaturedBookDetailViewController: UIViewController {
             }
         }
     }
-
-    @IBAction func featuredBookReviewButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "fromFeaturedToReviewsSegue", sender: nil)
-    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "featuredToReviews" {
+            
+            let featuredBook = book!
+            let reviewsViewController = segue.destination as! ReviewsContentViewController
+            reviewsViewController.bookReviews = featuredBook
+            
+        } else {
+            
+            let featuredBook = book!
+            let discussionViewController = segue.destination as! DiscussionContentViewController
+            discussionViewController.bookDiscussion = featuredBook
+        }
+    }
     
     /*
     // MARK: - Navigation
@@ -83,5 +83,4 @@ class FeaturedBookDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
