@@ -16,9 +16,7 @@ class CustomTextField: UITextField {
         
         layer.cornerRadius = 15.0
         clipsToBounds = true
-        layer.borderWidth = 1
-        
-        
+        layer.borderWidth = 1 
     }
 
 }

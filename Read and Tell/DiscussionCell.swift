@@ -11,12 +11,8 @@ class DiscussionCell: UITableViewCell {
     
     
     @IBOutlet weak var discussionUserProfileImageView: UIImageView!
-    
     @IBOutlet weak var discussionUserNameLabel: UILabel!
-    
-    
     @IBOutlet weak var discussionUserTextLabel: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()

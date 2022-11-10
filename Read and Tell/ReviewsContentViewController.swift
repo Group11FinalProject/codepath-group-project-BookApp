@@ -29,7 +29,6 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         reviewBar.sendButton.image = UIImage(systemName: "pencil.line")
         
         reviewBar.delegate = self
-        
         reviewTableView.delegate = self
         reviewTableView.dataSource = self
         
@@ -81,16 +80,12 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
             let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
             
             review["identifier"] = industryIndentifier
+        } else {
             
-            
-        }
-        
-        else {
             let industryIdentifier = bookReviews["primary_isbn10"] as! String
             review["identifier"] = industryIdentifier
         }
         
-
         review.saveInBackground { (success, error) in
             if (success) {
                 print("review saved")
@@ -131,10 +126,7 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
                     self.reviewTableView.reloadData()
                 }
             }
-            
-        }
-        
-        else {
+        } else {
             let industryIdentifier = bookReviews["primary_isbn10"] as! String
             
             let query = PFQuery(className: "Reviews")
@@ -152,13 +144,8 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
             
         }
         
-       
-        
-       
         reviewTableView.reloadData()
     }
-    
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reviews.count + 1

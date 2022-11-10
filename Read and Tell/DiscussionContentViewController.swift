@@ -9,20 +9,18 @@ import UIKit
 import Parse
 import MessageInputBar
 
-class DiscussionContentViewController: UIViewController {
+class DiscussionContentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MessageInputBarDelegate {
     
     
     @IBOutlet weak var discussionTableView: UITableView!
     
-    var bookReviews: NSDictionary!
+    var bookDiscussion: NSDictionary!
     var discussionPosts = [PFObject]()
     let discussionBar = MessageInputBar()
     var showsDiscussionBar = false
     let cell = UITableViewCell()
     let myRefreshControl = UIRefreshControl()
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,11 +28,18 @@ class DiscussionContentViewController: UIViewController {
         
         discussionTableView.insertSubview(myRefreshControl, at: 0)
         
-
-        // Do any additional setup after loading the view.
+        discussionBar.inputTextView.placeholder = "What are your thoughts on the work?"
+        discussionBar.sendButton.title = "Post"
+        
+        discussionBar.delegate = self
+        discussionTableView.delegate = self
+        discussionTableView.dataSource = self
+        
+        discussionTableView.keyboardDismissMode = .interactive
+        
+        let center = NotificationCenter.default
+        center.addObserver(self, selector: #selector(keyboardWillBeHidden(note:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
-    
     
     @objc func onRefresh() {
         run(after: 1.5) {
@@ -68,31 +73,24 @@ class DiscussionContentViewController: UIViewController {
         
         discussionPost["text"] = text
         discussionPost["author"] = PFUser.current()!
-        discussionPost["title"] = bookReviews["title"]
+        discussionPost["title"] = bookDiscussion["title"]
         
-        
-        if bookReviews["industryIdentifiers"] != nil {
+        if bookDiscussion["industryIdentifiers"] != nil {
             
-            let industryIdentifierArray = bookReviews["industryIdentifiers"] as? [NSDictionary]
+            let industryIdentifierArray = bookDiscussion["industryIdentifiers"] as? [NSDictionary]
             let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
             
             discussionPost["identifier"] = industryIndentifier
+        } else {
             
-            
-        }
-        
-        else {
-            let industryIdentifier = bookReviews["primary_isbn10"] as! String
+            let industryIdentifier = bookDiscussion["primary_isbn10"] as! String
             discussionPost["identifier"] = industryIdentifier
         }
-        
 
         discussionPost.saveInBackground { (success, error) in
             if (success) {
                 print("discussion saved")
-            }
-            
-            else {
+            } else {
                 print("error saving discussion")
             }
         }
@@ -107,14 +105,13 @@ class DiscussionContentViewController: UIViewController {
         viewDidAppear(true)
         
     }
-    
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if bookReviews["industryIdentifiers"] != nil {
+        if bookDiscussion["industryIdentifiers"] != nil {
             
-            let industryIdentifierArray = bookReviews["industryIdentifiers"] as? [NSDictionary]
+            let industryIdentifierArray = bookDiscussion["industryIdentifiers"] as? [NSDictionary]
             let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
             
             let query = PFQuery(className: "DiscussionPost")
@@ -129,13 +126,11 @@ class DiscussionContentViewController: UIViewController {
                     self.discussionTableView.reloadData()
                 }
             }
+        } else {
             
-        }
-        
-        else {
-            let industryIdentifier = bookReviews["primary_isbn10"] as! String
+            let industryIdentifier = bookDiscussion["primary_isbn10"] as! String
             
-            let query = PFQuery(className: "DiscussionPosts")
+            let query = PFQuery(className: "DiscussionPost")
             query.whereKey("identifier", equalTo: industryIdentifier)
             query.includeKeys(["author", "text"])
             query.order(byDescending: "createdAt")
@@ -147,12 +142,8 @@ class DiscussionContentViewController: UIViewController {
                     self.discussionTableView.reloadData()
                 }
             }
-            
         }
-        
-       
-        
-       
+ 
         discussionTableView.reloadData()
     }
     
@@ -169,11 +160,11 @@ class DiscussionContentViewController: UIViewController {
         } else if indexPath.row <= discussionPosts.count {
             discussionTableView.rowHeight = 150
             let cell = discussionTableView.dequeueReusableCell(withIdentifier: "DiscussionCell") as! DiscussionCell
-            let discussioonPost = discussionPosts[indexPath.row - 1]
+            let discussionPost = discussionPosts[indexPath.row - 1]
             
-            let user = discussioonPost["author"] as! PFUser
+            let user = discussionPost["author"] as! PFUser
             cell.discussionUserNameLabel.text = user.username
-            cell.discussionUserTextLabel.text = (discussioonPost["text"] as! String)
+            cell.discussionUserTextLabel.text = (discussionPost["text"] as! String)
             
             return cell
         }
@@ -187,8 +178,6 @@ class DiscussionContentViewController: UIViewController {
             discussionBar.inputTextView.becomeFirstResponder()
         }
     }
-    
-    
 
     /*
     // MARK: - Navigation

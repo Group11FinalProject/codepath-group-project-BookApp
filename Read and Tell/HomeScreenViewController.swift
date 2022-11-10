@@ -23,7 +23,6 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
         
-        
         let width = (view.frame.size.width - layout.minimumInteritemSpacing) / 2
         
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)

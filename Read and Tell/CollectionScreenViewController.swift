@@ -90,7 +90,5 @@ class CollectionScreenViewController: UIViewController, UICollectionViewDataSour
          cell.bookCoverImage.image = UIImage(named: "and then there were none")
          */
         return cell
-        
-        
     }
 }

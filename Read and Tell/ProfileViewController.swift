@@ -15,8 +15,6 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var ProfileImageView: UIImageView!
     
-
-    
     @IBAction func logoutButton(_ sender: Any) {
         PFUser.logOut()
         
@@ -28,8 +26,6 @@ class ProfileViewController: UIViewController {
         
         delegate.window?.rootViewController = loginViewController
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
