@@ -15,6 +15,8 @@
 		4C63C204291896FD00DC1A9F /* LogInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C63C203291896FD00DC1A9F /* LogInButton.swift */; };
 		4C841481291793DE00150E46 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C841480291793DE00150E46 /* ProfileViewController.swift */; };
 		4C84148329179FA500150E46 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C84148229179FA500150E46 /* SettingsViewController.swift */; };
+		5E0FA21C291C8F3E00CB6707 /* DiscussionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0FA21B291C8F3E00CB6707 /* DiscussionContentViewController.swift */; };
+		5E0FA222291CBB8100CB6707 /* DiscussionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0FA221291CBB8100CB6707 /* DiscussionCell.swift */; };
 		5E14373B291383CD008D2ACB /* SearchBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */; };
 		5E1C3F952915C5EC00EBA6D9 /* ReviewsContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C3F942915C5EC00EBA6D9 /* ReviewsContentViewController.swift */; };
 		5E2195732914779B001D259F /* FeaturedBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */; };
@@ -65,6 +67,8 @@
 		4C63C203291896FD00DC1A9F /* LogInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInButton.swift; sourceTree = "<group>"; };
 		4C841480291793DE00150E46 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4C84148229179FA500150E46 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5E0FA21B291C8F3E00CB6707 /* DiscussionContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionContentViewController.swift; sourceTree = "<group>"; };
+		5E0FA221291CBB8100CB6707 /* DiscussionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionCell.swift; sourceTree = "<group>"; };
 		5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookDetailViewController.swift; sourceTree = "<group>"; };
 		5E1C3F942915C5EC00EBA6D9 /* ReviewsContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsContentViewController.swift; sourceTree = "<group>"; };
 		5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedBookDetailViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 				5E1C3F942915C5EC00EBA6D9 /* ReviewsContentViewController.swift */,
 				4C841480291793DE00150E46 /* ProfileViewController.swift */,
 				4C84148229179FA500150E46 /* SettingsViewController.swift */,
+				5E0FA21B291C8F3E00CB6707 /* DiscussionContentViewController.swift */,
+				5E0FA221291CBB8100CB6707 /* DiscussionCell.swift */,
 			);
 			path = "Read and Tell";
 			sourceTree = "<group>";
@@ -464,10 +470,12 @@
 				89C21DB82909E1D500B041DE /* HomeScreenViewController.swift in Sources */,
 				4C63C204291896FD00DC1A9F /* LogInButton.swift in Sources */,
 				4C63C202291893C600DC1A9F /* CustomTextField.swift in Sources */,
+				5E0FA21C291C8F3E00CB6707 /* DiscussionContentViewController.swift in Sources */,
 				77C7CE822910A7D0003836B7 /* BookSearchCell.swift in Sources */,
 				5E14373B291383CD008D2ACB /* SearchBookDetailViewController.swift in Sources */,
 				777FC5762907B54300697B75 /* AppDelegate.swift in Sources */,
 				7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */,
+				5E0FA222291CBB8100CB6707 /* DiscussionCell.swift in Sources */,
 				4C84148329179FA500150E46 /* SettingsViewController.swift in Sources */,
 				5E1C3F952915C5EC00EBA6D9 /* ReviewsContentViewController.swift in Sources */,
 				777FC5782907B54300697B75 /* SceneDelegate.swift in Sources */,

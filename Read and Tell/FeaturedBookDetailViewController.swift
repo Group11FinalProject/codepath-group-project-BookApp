@@ -14,9 +14,20 @@ class FeaturedBookDetailViewController: UIViewController {
     @IBOutlet weak var featuredBookTitleLabel: UILabel!
     @IBOutlet weak var featuredBookAuthorLabel: UILabel!
     @IBOutlet weak var featuredBookDescriptionLabel: UILabel!
-    
-
     @IBOutlet weak var featuredBooksWeeksLabel: UILabel!
+    
+    @IBOutlet weak var featuredBookThumbsDown: UIImageView!
+    
+    
+    @IBOutlet weak var featuredBooksThumbsUp: UIImageView!
+    
+    @IBOutlet weak var featuredBookThumbsDownNumber: UILabel!
+    
+    
+    @IBOutlet weak var featuredBooksThumbsUpNumber: UILabel!
+    
+    
+    
     
     
 
@@ -68,10 +79,30 @@ class FeaturedBookDetailViewController: UIViewController {
             }
         }
     }
-
-    @IBAction func featuredBookReviewButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "fromFeaturedToReviewsSegue", sender: nil)
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "featuredToReviews" {
+            
+            let featuredBook = book!
+            let reviewsViewController = segue.destination as! ReviewsContentViewController
+            reviewsViewController.bookReviews = featuredBook
+            
+        }
+        
+        else {
+            
+            let featuredBook = book!
+            let discussionViewController = segue.destination as! DiscussionContentViewController
+            discussionViewController.bookReviews = featuredBook
+        }
+        
+        
     }
+    
+    
+    
         
     
     /*

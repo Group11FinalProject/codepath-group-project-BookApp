@@ -74,9 +74,22 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
         review["author"] = PFUser.current()!
         review["title"] = bookReviews["title"]
         
-        let industryIdentifierArray = bookReviews["industryIdentifiers"] as? [NSDictionary]
-        let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
-        review["identifier"] = industryIndentifier
+        
+        if bookReviews["industryIdentifiers"] != nil {
+            
+            let industryIdentifierArray = bookReviews["industryIdentifiers"] as? [NSDictionary]
+            let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+            
+            review["identifier"] = industryIndentifier
+            
+            
+        }
+        
+        else {
+            let industryIdentifier = bookReviews["primary_isbn10"] as! String
+            review["identifier"] = industryIdentifier
+        }
+        
 
         review.saveInBackground { (success, error) in
             if (success) {
@@ -101,21 +114,47 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let industryIdentifierArray = bookReviews["industryIdentifiers"] as? [NSDictionary]
-        let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
-        
-        let query = PFQuery(className: "Reviews")
-        query.whereKey("identifier", equalTo: industryIndentifier)
-        query.includeKeys(["author", "text"])
-        query.order(byDescending: "createdAt")
-        query.limit = 10
-        
-        query.findObjectsInBackground { (reviews, error) in
-            if reviews != nil {
-                self.reviews = reviews!
-                self.reviewTableView.reloadData()
+        if bookReviews["industryIdentifiers"] != nil {
+            
+            let industryIdentifierArray = bookReviews["industryIdentifiers"] as? [NSDictionary]
+            let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+            
+            let query = PFQuery(className: "Reviews")
+            query.whereKey("identifier", equalTo: industryIndentifier)
+            query.includeKeys(["author", "text"])
+            query.order(byDescending: "createdAt")
+            query.limit = 10
+            
+            query.findObjectsInBackground { (reviews, error) in
+                if reviews != nil {
+                    self.reviews = reviews!
+                    self.reviewTableView.reloadData()
+                }
             }
+            
         }
+        
+        else {
+            let industryIdentifier = bookReviews["primary_isbn10"] as! String
+            
+            let query = PFQuery(className: "Reviews")
+            query.whereKey("identifier", equalTo: industryIdentifier)
+            query.includeKeys(["author", "text"])
+            query.order(byDescending: "createdAt")
+            query.limit = 10
+            
+            query.findObjectsInBackground { (reviews, error) in
+                if reviews != nil {
+                    self.reviews = reviews!
+                    self.reviewTableView.reloadData()
+                }
+            }
+            
+        }
+        
+       
+        
+       
         reviewTableView.reloadData()
     }
     
