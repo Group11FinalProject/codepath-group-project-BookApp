@@ -22,6 +22,10 @@ class SearchBookDetailViewController: UIViewController {
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     
+    @IBOutlet weak var likeButton: UIButton!
+    var liked:Bool = false
+    
+    
     var book: NSDictionary!
     
     override func viewDidLoad() {
@@ -54,6 +58,34 @@ class SearchBookDetailViewController: UIViewController {
         getRating()
     }
     
+    func setLiked(_ isLiked:Bool) {
+        liked = isLiked
+        if(liked) {
+            likeButton.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: UIControl.State.normal)
+        } else {
+            likeButton.setImage(UIImage(named: "hand.thumbsup"), for: UIControl.State.normal)
+        }
+    }
+    
+    @IBAction func recommendBook(_ sender: Any) {
+        let toBeLiked = !liked
+        if(toBeLiked) {
+            self.setLiked(true)
+            
+            //TwitterAPICaller.client?.likeTweet(tweetId: tweetId, success: {
+
+//            }, failure: { (error) in
+//                print("Like tweet unsuccessful: \(error)")
+//            })
+        } else {
+            self.setLiked(false)
+            //TwitterAPICaller.client?.unlikeTweet(tweetId: tweetId, success: {
+
+//            }, failure: { (error) in
+//                print("Unliking tweet unsuccessful: \(error)")
+//            })
+        }
+    }
     
     @IBAction func saveToCollection(_ sender: Any) {
         let user = PFUser.current()!
