@@ -8,25 +8,51 @@
 import UIKit
 import AlamofireImage
 
-class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var bookCollectionView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     var books = [NSDictionary]()
+    var categoryListsCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         bookCollectionView.delegate = self
         bookCollectionView.dataSource = self
         
+        /*
         let layout = bookCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 4
         layout.minimumInteritemSpacing = 4
-        
+        *
         let width = (view.frame.size.width - layout.minimumInteritemSpacing) / 2
         
         layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+        */
         
+        /*
+        bookCollectionView?.register(HeaderCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderCollectionReusableView")
+        */
+        
+        view.addSubview(bookCollectionView!)
+        bookAPICall()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        bookCollectionView?.frame = view.bounds
+        
+        flowLayout.scrollDirection = .vertical
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 5
+        //let width = (view.frame.size.width - flowLayout.minimumInteritemSpacing)
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 5, right: 10)
+        flowLayout.itemSize = CGSize(width: 200-20, height: 345)
+    }
+    
+    func bookAPICall () {
         let url = URL(string: "https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=iz8MAMr5DnmAbPApq1UYPyrGinGYebIP")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -39,62 +65,73 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
                 
                 let results = dataDictionary["results"] as! NSDictionary
                 let categoryLists = results["lists"] as! [NSDictionary]
-                
+                self.categoryListsCount = categoryLists.count
+
+                /*
                 for index in categoryLists.indices {
                     let categoryElement = categoryLists[index]
                     self.books.append(contentsOf: categoryElement["books"] as! [NSDictionary])
                 }
+                */
                 
+                self.books = categoryLists
                 self.bookCollectionView.reloadData()
-                //print(dataDictionary)
             }
         }
         task.resume()
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return categoryListsCount
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return books.count
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = bookCollectionView.dequeueReusableCell(withReuseIdentifier: "BookGridCell", for: indexPath) as! BookGridCell
-        
-        let book = books[indexPath.item]
+        let bookCategory = books[indexPath.section]
+        let bookList = bookCategory["books"] as! [NSDictionary]
+        let book = bookList[indexPath.item]
         
         let bookTitle = book["title"] as! String
-        cell.bookTitleLabel.text = bookTitle
+        cell.bookTitleLabel?.text = bookTitle
         
         let bookImage = book["book_image"] as! String
-        //let imageWidth = book["book_image_width"] as! Int
-        //let imageHeight = book["book_image_height"] as! Int
-        //let size = CGSize(width: imageWidth, height: imageHeight)
         let bookImageUrl = URL(string: bookImage)
-        /*
-         if let data = try? Data(contentsOf: bookImageUrl!) {
-         let image: UIImage = UIImage(data: data)!
-         let scaledImage = image.af.imageAspectScaled(toFill: size)
-         cell.bookCoverImage.image = scaledImage
-         }
-         */
         cell.bookCoverImage.af.setImage(withURL: bookImageUrl!)
-        
-        /*
-         cell.addButtonTapAction = {
-         self.performSegue(withIdentifier: "your segue", sender: self)
-         }
-         */
+
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = bookCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderCollectionReusableView", for: indexPath) as! HeaderCollectionReusableView
+        
+        let bookCategory = books[indexPath.section]
+        header.categoryTitleLabel.text = bookCategory["list_name"] as? String
+        
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        //flowLayout.minimumLineSpacing = 5
+        //let width = (view.frame.size.width - flowLayout.minimumLineSpacing) / 2
+        return CGSize(width: view.frame.size.width, height: 105)
+        //height: 105
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UICollectionViewCell
         let indexPath = bookCollectionView.indexPath(for: cell)!
-        let book = books[indexPath.item]
+        let bookCategory = books[indexPath.section]
+        let bookList = bookCategory["books"] as! [NSDictionary]
+        let book = bookList[indexPath.item]
         let featuredDetailsViewController = segue.destination as! FeaturedBookDetailViewController
         featuredDetailsViewController.book = book
         
         bookCollectionView.deselectItem(at: indexPath, animated: true)
     }
-    
 }
 
