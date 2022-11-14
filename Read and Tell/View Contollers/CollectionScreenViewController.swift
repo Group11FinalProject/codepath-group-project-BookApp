@@ -24,11 +24,17 @@ class CollectionScreenViewController: UIViewController, UICollectionViewDataSour
         myBooksCollectionView.delegate = self
         myBooksCollectionView.dataSource = self
         
+        myBooksCollectionView?.frame = view.bounds
+        
         let layout = myBooksCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
-        let width = (view.frame.size.width - layout.minimumInteritemSpacing) / 2
-        layout.itemSize = CGSize(width: width, height: width * 3 / 2)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        
+        let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3
+        layout.itemSize = CGSize(width: width - 10, height: (width * 3 / 2) - 10)
+        
+        //layout.itemSize = CGSize(width: 200 - 30, height: 300)
         
         //Unhandled error. Nil value when user hasn't saved any books but tries to go to collection tab
         //self.myBooks = user?["bookCollection"] as! [PFObject]
@@ -71,27 +77,20 @@ class CollectionScreenViewController: UIViewController, UICollectionViewDataSour
         let cell = myBooksCollectionView.dequeueReusableCell(withReuseIdentifier: "CollectionGridCell", for: indexPath) as! CollectionGridCell
         
         let book = myBooks[indexPath.item]
-
+        
         let bookCoverImage = book["imageLink"] as! String
-            let bookCoverImageUrl = URL(string: bookCoverImage)
-            //print(bookCoverImageUrl)
-            cell.bookCoverImage.af.setImage(withURL: bookCoverImageUrl!)
-            //print(cell.bookCoverImage.image)
-        /*
-         // Configure the cell
-         cell.layer.cornerRadius = 15.0
-         cell.layer.borderWidth = 0.0
-         cell.layer.shadowColor = UIColor.black.cgColor
-         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-         cell.layer.shadowRadius = 5.0
-         cell.layer.shadowOpacity = 1
-         cell.layer.masksToBounds = false //<-
-         /*
-          cell.bookCoverImage.af.setImage(UIImage(named: "and then there were none"), for: UIControl.State.normal)
-          */
-         
-         cell.bookCoverImage.image = UIImage(named: "and then there were none")
-         */
+        let bookCoverImageUrl = URL(string: bookCoverImage)
+        cell.bookCoverImage.af.setImage(withURL: bookCoverImageUrl!)
+        
+        // Configure the cell
+        cell.layer.cornerRadius = 15.0
+        cell.layer.borderWidth = 0.0
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 5, height: 5)
+        cell.layer.shadowRadius = 5.0
+        cell.layer.shadowOpacity = 1
+        cell.layer.masksToBounds = false //<-
+        
         return cell
     }
 }
