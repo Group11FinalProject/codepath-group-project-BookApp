@@ -17,6 +17,9 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Top Sellers"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
 
         bookCollectionView.delegate = self
         bookCollectionView.dataSource = self
@@ -101,6 +104,14 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
         let bookImage = book["book_image"] as! String
         let bookImageUrl = URL(string: bookImage)
         cell.bookCoverImage.af.setImage(withURL: bookImageUrl!)
+        
+        cell.layer.cornerRadius = 15.0
+        cell.layer.borderWidth = 0.0
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.shadowRadius = 5.0
+        cell.layer.shadowOpacity = 1
+        cell.layer.masksToBounds = false
 
         return cell
     }

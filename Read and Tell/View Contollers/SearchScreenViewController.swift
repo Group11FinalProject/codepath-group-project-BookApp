@@ -19,6 +19,8 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "Search"
          
         searchTableView.dataSource = self
         searchTableView.delegate = self
