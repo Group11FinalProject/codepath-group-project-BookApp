@@ -21,12 +21,15 @@ class FeaturedBookDetailViewController: UIViewController {
     @IBOutlet weak var featuredBooksThumbsUpNumber: UILabel!
     
     var book: NSDictionary!
+    var recommendations = [PFObject]()
+    //var recommendationsCount: Int
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         featuredBookTitleLabel.text = book["title"] as? String
         featuredBookAuthorLabel.text = book["author"] as? String
+        //featuredBooksThumbsUpNumber.text = String(self.recommendations.count)
         let featuredBookImage = book["book_image"] as! String
         let featuredBookImageUrl = URL(string: featuredBookImage)
         featuredBookImageView.af.setImage(withURL: featuredBookImageUrl!)
@@ -56,6 +59,83 @@ class FeaturedBookDetailViewController: UIViewController {
                 print("book not saved")
             }
         }
+    }
+    
+    
+    @IBAction func reccomendBook(_ sender: Any) {
+        
+        let recommendation = PFObject(className: "Recommendations")
+        
+        if book["industryIdentifiers"] != nil {
+            
+            let industryIdentifierArray = book["industryIdentifiers"] as? [NSDictionary]
+            let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+            
+            recommendation["identifier"] = industryIndentifier
+        } else {
+            
+            let industryIdentifier = book["primary_isbn10"] as! String
+            recommendation["identifier"] = industryIdentifier
+        }
+        
+        recommendation.saveInBackground { (success, error) in
+            if (success) {
+                print("recommendation saved")
+            }
+            
+            else {
+                print("error saving recommendation")
+            }
+        }
+        
+        
+        featuredBooksThumbsUpNumber.text = String(self.recommendations.count)
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if book["industryIdentifiers"] != nil {
+            
+            let industryIdentifierArray = book["industryIdentifiers"] as? [NSDictionary]
+            
+            let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+            
+            let query = PFQuery(className: "Recommendations")
+            query.whereKey("identifier", equalTo: industryIndentifier)
+            //query.includeKeys(["author", "text"])
+            //query.order(byDescending: "createdAt")
+            //query.limit = 10
+            
+            query.findObjectsInBackground { (recommendations, error) in
+                if recommendations != nil {
+                    self.recommendations = recommendations!
+                    //self.reviewTableView.reloadData()
+                }
+            }
+        } else {
+            let industryIdentifier = book["primary_isbn10"] as! String
+            
+            let query = PFQuery(className: "Recommendations")
+            query.whereKey("identifier", equalTo: industryIdentifier)
+            //query.includeKeys(["author", "text"])
+            //query.order(byDescending: "createdAt")
+            //query.limit = 10
+            
+            query.findObjectsInBackground { (recommendations, error) in
+                if recommendations != nil {
+                    self.recommendations = recommendations!
+                    //self.reviewTableView.reloadData()
+                }
+            }
+            
+        }
+        
+        //featuredBooksThumbsUpNumber.text = String(self.recommendations.count)
+        
+        //reviewTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
