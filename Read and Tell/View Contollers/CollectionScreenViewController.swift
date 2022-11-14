@@ -18,6 +18,9 @@ class CollectionScreenViewController: UIViewController, UICollectionViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "My Collection"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         myBooksCollectionView.delegate = self
         myBooksCollectionView.dataSource = self
         

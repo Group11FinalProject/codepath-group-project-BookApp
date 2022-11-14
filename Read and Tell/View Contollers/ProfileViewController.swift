@@ -12,8 +12,20 @@ import Parse
 import SwiftUI
 
 class ProfileViewController: UIViewController {
-
+    
     @IBOutlet weak var ProfileImageView: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Profile"
+        
+        ProfileImageView.layer.masksToBounds = true
+        ProfileImageView.layer.cornerRadius = ProfileImageView.bounds.width / 2
+        ProfileImageView.layer.borderWidth = 1
+        ProfileImageView.layer.borderColor = UIColor.black.cgColor
+        ProfileImageView.clipsToBounds = true
+    }
     
     @IBAction func logoutButton(_ sender: Any) {
         PFUser.logOut()
@@ -27,12 +39,4 @@ class ProfileViewController: UIViewController {
         delegate.window?.rootViewController = loginViewController
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        ProfileImageView.layer.borderWidth = 1
-        ProfileImageView.layer.masksToBounds = false
-        ProfileImageView.layer.borderColor = UIColor.black.cgColor
-        ProfileImageView.layer.cornerRadius = ProfileImageView.frame.height/3
-        ProfileImageView.clipsToBounds = true
-            }
-        }
+}
