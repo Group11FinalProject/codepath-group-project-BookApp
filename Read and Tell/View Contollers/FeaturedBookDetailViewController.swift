@@ -86,10 +86,13 @@ class FeaturedBookDetailViewController: UIViewController {
             else {
                 print("error saving recommendation")
             }
+            
         }
         
         
-        featuredBooksThumbsUpNumber.text = String(self.recommendations.count)
+        var numRecs = String(self.recommendations.count)
+        print(numRecs)
+        self.featuredBooksThumbsUpNumber.text = numRecs
         
         
     }
