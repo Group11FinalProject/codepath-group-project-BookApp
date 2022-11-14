@@ -1184,11 +1184,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="f82-NF-Gk4"/>
         <segue reference="lBU-bn-i73"/>
-<<<<<<< Updated upstream
         <segue reference="2mW-Df-aoZ"/>
-=======
         <segue reference="hWd-VQ-eRH"/>
->>>>>>> Stashed changes
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
