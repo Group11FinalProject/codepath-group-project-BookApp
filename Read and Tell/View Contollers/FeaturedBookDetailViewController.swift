@@ -9,19 +9,27 @@ import UIKit
 import Parse
 
 class FeaturedBookDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var featuredBookImageView: UIImageView!
     @IBOutlet weak var featuredBookTitleLabel: UILabel!
     @IBOutlet weak var featuredBookAuthorLabel: UILabel!
     @IBOutlet weak var featuredBookDescriptionLabel: UILabel!
     @IBOutlet weak var featuredBooksWeeksLabel: UILabel!
-    @IBOutlet weak var featuredBookThumbsDown: UIImageView!
-    @IBOutlet weak var featuredBooksThumbsUp: UIImageView!
+    
+    @IBOutlet weak var featuredBookThumbsUp: UIButton!
+    
+    @IBOutlet weak var featuredBookThumbsDown: UIButton!
+    
+    
+    
     @IBOutlet weak var featuredBookThumbsDownNumber: UILabel!
     @IBOutlet weak var featuredBooksThumbsUpNumber: UILabel!
     
     var book: NSDictionary!
     var recommendations = [PFObject]()
+    var unRecommendations = [PFObject]()
+    var recommendedBook = false
+    var numRecs = 0
     //var recommendationsCount: Int
     
     override func viewDidLoad() {
@@ -29,7 +37,10 @@ class FeaturedBookDetailViewController: UIViewController {
         
         featuredBookTitleLabel.text = book["title"] as? String
         featuredBookAuthorLabel.text = book["author"] as? String
-        //featuredBooksThumbsUpNumber.text = String(self.recommendations.count)
+        //var numRecs = String(self.recommendations.count)
+        //print(numRecs)
+        //self.featuredBooksThumbsUpNumber.text = numRecs
+        
         let featuredBookImage = book["book_image"] as! String
         let featuredBookImageUrl = URL(string: featuredBookImage)
         featuredBookImageView.af.setImage(withURL: featuredBookImageUrl!)
@@ -39,7 +50,7 @@ class FeaturedBookDetailViewController: UIViewController {
         let numWeeks = (book["weeks_on_list"])!
         
         featuredBooksWeeksLabel.text = "This book has been on Top Sellers for \(numWeeks) weeks!"
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -63,8 +74,75 @@ class FeaturedBookDetailViewController: UIViewController {
     
     
     @IBAction func reccomendBook(_ sender: Any) {
+        //let user = PFUser.current()!
         
+        /*
+        if book["industryIdentifiers"] != nil {
+            
+            let industryIdentifierArray = book["industryIdentifiers"] as? [NSDictionary]
+            
+            let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+            
+            let query = PFQuery(className: "Recommendations")
+            query.whereKey("identifier", equalTo: industryIndentifier)
+            query.includeKey("currentUser")
+            //query.order(byDescending: "createdAt")
+            //query.limit = 10
+            
+            query.findObjectsInBackground { (recommendations, error) in
+                if recommendations != nil {
+                    self.recommendations = recommendations!
+                    
+                    //var numRecs = String(self.recommendations.count)
+                    //print(numRecs)
+                    //self.featuredBooksThumbsUpNumber.text = String(numRecs)
+                    //self.featuredBookThumbsUp.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: UIControl.State.normal)
+                    //self.recommendedBook = true
+                    
+                    //self.reviewTableView.reloadData()
+                }
+            }
+        } else {
+            let industryIdentifier = book["primary_isbn10"] as! String
+            
+            let query = PFQuery(className: "Recommendations")
+            query.whereKey("identifier", equalTo: industryIdentifier)
+            query.includeKey("currentUser")
+            //query.order(byDescending: "createdAt")
+            //query.limit = 10
+            
+            query.findObjectsInBackground { (recommendations, error) in
+                if recommendations != nil {
+                    self.recommendations = recommendations!
+                    
+                    //var numRecs = String(self.recommendations.count)
+                    //print(numRecs)
+                    //self.featuredBooksThumbsUpNumber.text = String(numRecs)
+                    //self.featuredBookThumbsUp.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: UIControl.State.normal)
+                    //self.recommendedBook = true
+                    //self.reviewTableView.reloadData()
+                }
+            }
+            
+            
+            
+        }
+         
+         
+        if(user in recommendations) {
+            print("It works")
+        }
+        
+        else {
+            print("Sorry")
+        }
+         
+         */
         let recommendation = PFObject(className: "Recommendations")
+        
+        recommendation["currentUser"] = PFUser.current()!
+        recommendation["numberedRec"] = numRecs
+        recommendation["Recommended"] = true
         
         if book["industryIdentifiers"] != nil {
             
@@ -81,6 +159,7 @@ class FeaturedBookDetailViewController: UIViewController {
         recommendation.saveInBackground { (success, error) in
             if (success) {
                 print("recommendation saved")
+                //self.recommendedBook = true
             }
             
             else {
@@ -90,9 +169,187 @@ class FeaturedBookDetailViewController: UIViewController {
         }
         
         
-        var numRecs = String(self.recommendations.count)
-        print(numRecs)
-        self.featuredBooksThumbsUpNumber.text = numRecs
+        if book["industryIdentifiers"] != nil {
+            
+            let industryIdentifierArray = book["industryIdentifiers"] as? [NSDictionary]
+            
+            let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+            
+            let query = PFQuery(className: "Recommendations")
+            query.whereKey("identifier", equalTo: industryIndentifier)
+            query.includeKey("currentUser")
+            //query.order(byDescending: "createdAt")
+            //query.limit = 10
+            
+            query.findObjectsInBackground { (recommendations, error) in
+                if recommendations != nil {
+                    self.recommendations = recommendations!
+                    var numRecs = String(self.recommendations.count)
+                    print(numRecs)
+                    self.featuredBooksThumbsUpNumber.text = String(numRecs)
+                    self.featuredBookThumbsUp.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: UIControl.State.normal)
+                    //self.recommendedBook = true
+                    
+                    //self.reviewTableView.reloadData()
+                }
+            }
+        } else {
+            let industryIdentifier = book["primary_isbn10"] as! String
+            
+            let query = PFQuery(className: "Recommendations")
+            query.whereKey("identifier", equalTo: industryIdentifier)
+            query.includeKey("currentUser")
+            //query.order(byDescending: "createdAt")
+            //query.limit = 10
+            
+            query.findObjectsInBackground { (recommendations, error) in
+                if recommendations != nil {
+                    self.recommendations = recommendations!
+                    var numRecs = String(self.recommendations.count)
+                    print(numRecs)
+                    self.featuredBooksThumbsUpNumber.text = String(numRecs)
+                    self.featuredBookThumbsUp.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: UIControl.State.normal)
+                    //self.recommendedBook = true
+                    //self.reviewTableView.reloadData()
+                }
+            }
+            
+            
+            
+        }
+        
+        
+        /*
+         if featuredBooksThumbsUp.image == UIImage(systemName: "hand.thumbsup.fill") {
+         numRecs -= 1
+         print(numRecs)
+         self.featuredBooksThumbsUpNumber.text = String(numRecs)
+         featuredBooksThumbsUp.image = UIImage(systemName: "hand.thumbsup")
+         //recommendation["Recommended"] = false
+         
+         }
+         
+         else { */
+        
+        //featuredBookThumbsUp.image = UIImage(systemName: "hand.thumbsup.fill")
+        
+        //numRecs += 1
+        //var numRecs = String(self.recommendations.count)
+        //print(numRecs)
+        //self.featuredBooksThumbsUpNumber.text = String(numRecs)
+        //recommendation["numberedRec"] = self.featuredBooksThumbsUpNumber.text
+        //featuredBooksThumbsUp.image = UIImage(systemName: "hand.thumbsup.fill")
+        
+        //}
+        
+        
+    }
+    
+    
+    
+    @IBAction func unRecommendBook(_ sender: Any) {
+        let unRecommendation = PFObject(className: "Unrecommendations")
+        
+        unRecommendation["currentUser"] = PFUser.current()!
+        unRecommendation["numberedRec"] = numRecs
+        unRecommendation["Recommended"] = true
+        
+        if book["industryIdentifiers"] != nil {
+            
+            let industryIdentifierArray = book["industryIdentifiers"] as? [NSDictionary]
+            let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+            
+            unRecommendation["identifier"] = industryIndentifier
+        } else {
+            
+            let industryIdentifier = book["primary_isbn10"] as! String
+            unRecommendation["identifier"] = industryIdentifier
+        }
+        
+        unRecommendation.saveInBackground { (success, error) in
+            if (success) {
+                print("unrecommendation saved")
+            }
+            
+            else {
+                print("error saving unrecommendation")
+            }
+            
+        }
+        
+        
+        if book["industryIdentifiers"] != nil {
+            
+            let industryIdentifierArray = book["industryIdentifiers"] as? [NSDictionary]
+            
+            let industryIndentifier = industryIdentifierArray?[0]["identifier"] as! String
+            
+            let query = PFQuery(className: "Unrecommendations")
+            query.whereKey("identifier", equalTo: industryIndentifier)
+            query.includeKey("currentUser")
+            //query.order(byDescending: "createdAt")
+            //query.limit = 10
+            
+            query.findObjectsInBackground { (unRecommendations, error) in
+                if unRecommendations != nil {
+                    self.unRecommendations = unRecommendations!
+                    var numUnRecs = String(self.unRecommendations.count)
+                    print(numUnRecs)
+                    self.featuredBookThumbsDownNumber.text = String(numUnRecs)
+                    self.featuredBookThumbsDown.setImage(UIImage(systemName: "hand.thumbsdown.fill"), for: UIControl.State.normal)
+                    
+                    //self.reviewTableView.reloadData()
+                }
+            }
+        } else {
+            let industryIdentifier = book["primary_isbn10"] as! String
+            
+            let query = PFQuery(className: "Unrecommendations")
+            query.whereKey("identifier", equalTo: industryIdentifier)
+            query.includeKey("currentUser")
+            //query.order(byDescending: "createdAt")
+            //query.limit = 10
+            
+            query.findObjectsInBackground { (unRecommendations, error) in
+                if unRecommendations != nil {
+                    self.unRecommendations = unRecommendations!
+                    var numUnRecs = String(self.unRecommendations.count)
+                    print(numUnRecs)
+                    self.featuredBookThumbsDownNumber.text = String(numUnRecs)
+                    self.featuredBookThumbsDown.setImage(UIImage(systemName: "hand.thumbsdown.fill"), for: UIControl.State.normal)
+                    //self.reviewTableView.reloadData()
+                }
+            }
+            
+            
+            
+        }
+        
+        
+        /*
+         if featuredBooksThumbsUp.image == UIImage(systemName: "hand.thumbsup.fill") {
+         numRecs -= 1
+         print(numRecs)
+         self.featuredBooksThumbsUpNumber.text = String(numRecs)
+         featuredBooksThumbsUp.image = UIImage(systemName: "hand.thumbsup")
+         //recommendation["Recommended"] = false
+         
+         }
+         
+         else { */
+        
+        //featuredBookThumbsUp.image = UIImage(systemName: "hand.thumbsup.fill")
+        
+        //numRecs += 1
+        //var numRecs = String(self.recommendations.count)
+        //print(numRecs)
+        //self.featuredBooksThumbsUpNumber.text = String(numRecs)
+        //recommendation["numberedRec"] = self.featuredBooksThumbsUpNumber.text
+        //featuredBooksThumbsUp.image = UIImage(systemName: "hand.thumbsup.fill")
+        
+        //}
+        
+        
         
         
     }
@@ -108,13 +365,16 @@ class FeaturedBookDetailViewController: UIViewController {
             
             let query = PFQuery(className: "Recommendations")
             query.whereKey("identifier", equalTo: industryIndentifier)
-            //query.includeKeys(["author", "text"])
+            query.includeKey("currentUser")
             //query.order(byDescending: "createdAt")
             //query.limit = 10
             
             query.findObjectsInBackground { (recommendations, error) in
                 if recommendations != nil {
                     self.recommendations = recommendations!
+                    var numRecs = String(self.recommendations.count)
+                    print(numRecs)
+                    self.featuredBooksThumbsUpNumber.text = String(numRecs)
                     //self.reviewTableView.reloadData()
                 }
             }
@@ -123,20 +383,28 @@ class FeaturedBookDetailViewController: UIViewController {
             
             let query = PFQuery(className: "Recommendations")
             query.whereKey("identifier", equalTo: industryIdentifier)
-            //query.includeKeys(["author", "text"])
+            query.includeKey("currentUser")
             //query.order(byDescending: "createdAt")
             //query.limit = 10
             
             query.findObjectsInBackground { (recommendations, error) in
                 if recommendations != nil {
                     self.recommendations = recommendations!
+                    var numRecs = String(self.recommendations.count)
+                    print(numRecs)
+                    self.featuredBooksThumbsUpNumber.text = String(numRecs)
                     //self.reviewTableView.reloadData()
                 }
             }
             
+            
+            
         }
         
-        //featuredBooksThumbsUpNumber.text = String(self.recommendations.count)
+        // var numRecs = String(self.recommendations.count)
+        // print(numRecs)
+        // self.featuredBooksThumbsUpNumber.text = String(numRecs)
+        
         
         //reviewTableView.reloadData()
     }
@@ -158,12 +426,12 @@ class FeaturedBookDetailViewController: UIViewController {
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
