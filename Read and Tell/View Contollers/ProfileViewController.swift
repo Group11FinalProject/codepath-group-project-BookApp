@@ -24,9 +24,9 @@ class ProfileViewController: UIViewController {
         title = "My Profile"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        nameDisplay.text = "Elaine Luzung"
+        nameDisplay.text = user["fullName"] as! String
         usernameDisplay.text = "@" + user.username!
-        bioDisplay.text = "I love to read all kinds of genres. My favorite book series is The Giver. I love frogs."
+        bioDisplay.text = user["bio"] as! String
         
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
