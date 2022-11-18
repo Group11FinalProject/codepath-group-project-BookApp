@@ -153,18 +153,37 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            reviewTableView.rowHeight = 100
             let cell = reviewTableView.dequeueReusableCell(withIdentifier: "AddReviewCell")!
             
             return cell
         } else if indexPath.row <= reviews.count {
             reviewTableView.rowHeight = 150
+            
             let cell = reviewTableView.dequeueReusableCell(withIdentifier: "ReviewCell") as! ReviewCell
             let review = reviews[indexPath.row - 1]
             
             let user = review["author"] as! PFUser
             cell.usernameLabel.text = user.username
             cell.userReviewLabel.text = (review["text"] as! String)
+            
+            if user["profileImage"] != nil {
+                
+                let imageFile = user["profileImage"] as! PFFileObject
+                let urlString = imageFile.url!
+                let url = URL(string: urlString)!
+                cell.userProfileImage.af.setImage(withURL: url)
+                
+            } else {
+                
+                cell.userProfileImage.image = UIImage(named: "default_profile_image")
+                
+            }
+            
+            cell.userProfileImage.layer.masksToBounds = true
+            cell.userProfileImage.layer.cornerRadius = cell.userProfileImage.bounds.width / 2
+            cell.userProfileImage.layer.borderWidth = 2
+            cell.userProfileImage.layer.borderColor = UIColor.black.cgColor
+            cell.userProfileImage.clipsToBounds = true
             
             return cell
         }

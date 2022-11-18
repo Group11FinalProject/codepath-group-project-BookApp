@@ -153,7 +153,6 @@ class DiscussionContentViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            discussionTableView.rowHeight = 100
             let cell = discussionTableView.dequeueReusableCell(withIdentifier: "AddDiscussionPostCell")!
             
             return cell
@@ -165,6 +164,25 @@ class DiscussionContentViewController: UIViewController, UITableViewDelegate, UI
             let user = discussionPost["author"] as! PFUser
             cell.discussionUserNameLabel.text = user.username
             cell.discussionUserTextLabel.text = (discussionPost["text"] as! String)
+            
+            if user["profileImage"] != nil {
+                
+                let imageFile = user["profileImage"] as! PFFileObject
+                let urlString = imageFile.url!
+                let url = URL(string: urlString)!
+                cell.discussionUserProfileImageView.af.setImage(withURL: url)
+                
+            } else {
+                
+                cell.discussionUserProfileImageView.image = UIImage(named: "default_profile_image")
+                
+            }
+            
+            cell.discussionUserProfileImageView.layer.masksToBounds = true
+            cell.discussionUserProfileImageView.layer.cornerRadius = cell.discussionUserProfileImageView.bounds.width / 2
+            cell.discussionUserProfileImageView.layer.borderWidth = 3
+            cell.discussionUserProfileImageView.layer.borderColor = UIColor.black.cgColor
+            cell.discussionUserProfileImageView.clipsToBounds = true
             
             return cell
         }

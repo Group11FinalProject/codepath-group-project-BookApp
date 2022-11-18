@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
         
     }
     
+    //User Logs into their account and takes them to the Home Screen
     @IBAction func loginButton(_ sender: Any) {
         let username = usernameText.text!
         let password = passwordText.text!
@@ -32,6 +33,7 @@ class LoginViewController: UIViewController {
         
     }
     
+    //Once clicked, takes User to Sign Up Screen to create a new account
     @IBAction func signUpButton(_ sender: Any) {
         self.performSegue(withIdentifier: "signupSegue", sender: nil)
     }

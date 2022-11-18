@@ -21,18 +21,24 @@ class SignupViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //Lets User create a new account
     @IBAction func signupButton(_ sender: Any) {
         let user = PFUser()
         
         user.username = signupUsernameText.text
         user.password = signupPasswordText.text
         user.email = emailText.text
-        user["bio"] = ""
-        user["fullName"] = ""
+        user["bio"] = "Tell us about yourself!"
+        user["fullName"] = "Your name goes here"
         
+        let imageData = UIImage(named:"default_profile_image")?.pngData()
+        let file = PFFileObject(name: "image.png", data: imageData!)
+        user["profileImage"] = file
+        
+        //Saves User's information as a new User
         user.signUpInBackground{(success, error) in
             if success {
-                self.performSegue(withIdentifier: "signupToHomeSegue", sender: nil)
+                self.performSegue(withIdentifier: "signupToHomeSegue", sender: nil) //Sends User to Home Screen after account was created
             }
             
             else {

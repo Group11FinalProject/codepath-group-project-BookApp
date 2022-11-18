@@ -9,47 +9,42 @@ import UIKit
 import Parse
 import AlamofireImage
 
-class EditProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    @IBOutlet weak var editProfileTableView: UITableView!
-    //var profileImageCellInstance = ProfileImageCell()
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    @IBOutlet weak var editProfileImageView: UIImageView!
+    @IBOutlet weak var nameInput: UITextField!
+    @IBOutlet weak var usernameInput: UITextField!
+    @IBOutlet weak var bioInput: UITextView!
+    let user = PFUser.current()!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        editProfileTableView.dataSource = self
-        editProfileTableView.delegate = self
-
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
-            let cell = editProfileTableView.dequeueReusableCell(withIdentifier: "profileImageCell") as! ProfileImageCell
+        title = "Edit Profile"
+        
+        if user["profileImage"] != nil {
             
-            cell.profileImageView?.layer.masksToBounds = true
-            cell.profileImageView?.layer.cornerRadius = (cell.profileImageView?.bounds.width)! / 2
-            cell.profileImageView?.layer.borderWidth = 1
-            cell.profileImageView?.layer.borderColor = UIColor.black.cgColor
-            cell.profileImageView?.clipsToBounds = true
+            let imageFile = user["profileImage"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            editProfileImageView.af.setImage(withURL: url)
             
-            return cell
-        } else if indexPath.row == 1 {
-            let cell = editProfileTableView.dequeueReusableCell(withIdentifier: "usernameCell") as! UsernameCell
-            
-            return cell
-        } else if indexPath.row == 2 {
-            let cell = editProfileTableView.dequeueReusableCell(withIdentifier: "nameCell") as! NameCell
-            
-            return cell
         } else {
-            let cell = editProfileTableView.dequeueReusableCell(withIdentifier: "bioCell") as! BioCell
             
-            return cell
+            editProfileImageView.image = UIImage(named: "default_profile_image")
+            
         }
+        
+        usernameInput.text = user.username
+        nameInput.text = user["fullName"] as? String
+        bioInput.text = user["bio"] as? String
+        
+        editProfileImageView.layer.masksToBounds = true
+        editProfileImageView.layer.cornerRadius = editProfileImageView.bounds.width / 2
+        editProfileImageView.layer.borderWidth = 2
+        editProfileImageView.layer.borderColor = UIColor.black.cgColor
+        editProfileImageView.clipsToBounds = true
+        
     }
     
     @IBAction func selectPictureButton(_ sender: Any) {
@@ -68,14 +63,38 @@ class EditProfileViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        let profileImageCell = editProfileTableView.dequeueReusableCell(withIdentifier: "profileImageCell") as! ProfileImageCell
         let image = info[.editedImage] as! UIImage
-        let size = CGSize(width: 300, height: 300)
+        let size = CGSize (width: 250, height: 250)
         let scaledImage = image.af.imageAspectScaled(toFill: size)
         
-        profileImageCell.profileImageView?.image = scaledImage
+        editProfileImageView.image = scaledImage
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveChanges(_ sender: Any) {
+        //let controller = ProfileViewController()
+        user.username = usernameInput.text
+        user["fullName"] = nameInput.text
+        user["bio"] = bioInput.text
+        
+        if user["profileImage"] != nil {
+            let imageData = editProfileImageView.image!.pngData()
+            let file = PFFileObject(name: "image.png", data: imageData!)
+            user["profileImage"] = file
+        } else {
+            let imageData = UIImage(named:"default_profile_image")?.pngData()
+            let file = PFFileObject(name: "image.png", data: imageData!)
+            user["profileImage"] = file
+        }
+        
+        user.saveInBackground { (success, error) in
+            if success {
+                print("saved!")
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print("error!")
+            }
+        }
     }
 }

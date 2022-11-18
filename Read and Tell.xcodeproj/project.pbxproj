@@ -36,10 +36,6 @@
 		777FC5992907B54500697B75 /* Read_and_TellUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777FC5982907B54500697B75 /* Read_and_TellUITestsLaunchTests.swift */; };
 		77C7CE802910A6C5003836B7 /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7CE7F2910A6C5003836B7 /* SearchScreenViewController.swift */; };
 		77C7CE822910A7D0003836B7 /* BookSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7CE812910A7D0003836B7 /* BookSearchCell.swift */; };
-		77ED37B22922391A0046E644 /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED37B12922391A0046E644 /* ProfileImageCell.swift */; };
-		77ED37B4292239B40046E644 /* UsernameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED37B3292239B40046E644 /* UsernameCell.swift */; };
-		77ED37B629223D240046E644 /* NameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED37B529223D240046E644 /* NameCell.swift */; };
-		77ED37B829223DD80046E644 /* BioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED37B729223DD80046E644 /* BioCell.swift */; };
 		77ED37BA29233BCA0046E644 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED37B929233BCA0046E644 /* EditProfileViewController.swift */; };
 		77ED37BE2923403B0046E644 /* ProfileCustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ED37BD2923403B0046E644 /* ProfileCustomLabel.swift */; };
 		89C21DB82909E1D500B041DE /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C21DB72909E1D500B041DE /* HomeScreenViewController.swift */; };
@@ -98,10 +94,6 @@
 		777FC5982907B54500697B75 /* Read_and_TellUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Read_and_TellUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		77C7CE7F2910A6C5003836B7 /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		77C7CE812910A7D0003836B7 /* BookSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchCell.swift; sourceTree = "<group>"; };
-		77ED37B12922391A0046E644 /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
-		77ED37B3292239B40046E644 /* UsernameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameCell.swift; sourceTree = "<group>"; };
-		77ED37B529223D240046E644 /* NameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameCell.swift; sourceTree = "<group>"; };
-		77ED37B729223DD80046E644 /* BioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioCell.swift; sourceTree = "<group>"; };
 		77ED37B929233BCA0046E644 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		77ED37BD2923403B0046E644 /* ProfileCustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomLabel.swift; sourceTree = "<group>"; };
 		78DEE57CFB282671778E3684 /* Pods-Read and Tell.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Read and Tell.debug.xcconfig"; path = "Target Support Files/Pods-Read and Tell/Pods-Read and Tell.debug.xcconfig"; sourceTree = "<group>"; };
@@ -213,7 +205,6 @@
 		77A7072529220CEF00087ADC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				77ED37B0292238BC0046E644 /* Profile Custom Cells */,
 				89C21DB92909E28D00B041DE /* BookGridCell.swift */,
 				7749C73B290FA0000029A91D /* CollectionGridCell.swift */,
 				77C7CE812910A7D0003836B7 /* BookSearchCell.swift */,
@@ -221,17 +212,6 @@
 				5E0FA221291CBB8100CB6707 /* DiscussionCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		77ED37B0292238BC0046E644 /* Profile Custom Cells */ = {
-			isa = PBXGroup;
-			children = (
-				77ED37B12922391A0046E644 /* ProfileImageCell.swift */,
-				77ED37B3292239B40046E644 /* UsernameCell.swift */,
-				77ED37B529223D240046E644 /* NameCell.swift */,
-				77ED37B729223DD80046E644 /* BioCell.swift */,
-			);
-			path = "Profile Custom Cells";
 			sourceTree = "<group>";
 		};
 		77F7F9352921EA17000DA8BA /* View Contollers */ = {
@@ -505,15 +485,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77ED37B829223DD80046E644 /* BioCell.swift in Sources */,
 				77C7CE802910A6C5003836B7 /* SearchScreenViewController.swift in Sources */,
 				776D297C2914D4FB003AF594 /* ReviewCell.swift in Sources */,
 				77ED37BE2923403B0046E644 /* ProfileCustomLabel.swift in Sources */,
 				89C21DBA2909E28D00B041DE /* BookGridCell.swift in Sources */,
-				77ED37B629223D240046E644 /* NameCell.swift in Sources */,
 				294FC0BB29122B3D0086E231 /* SignupViewController.swift in Sources */,
 				5E2195732914779B001D259F /* FeaturedBookDetailViewController.swift in Sources */,
-				77ED37B4292239B40046E644 /* UsernameCell.swift in Sources */,
 				777FC57A2907B54300697B75 /* ViewController.swift in Sources */,
 				4C841481291793DE00150E46 /* ProfileViewController.swift in Sources */,
 				89C21DB82909E1D500B041DE /* HomeScreenViewController.swift in Sources */,
@@ -523,7 +500,6 @@
 				77C7CE822910A7D0003836B7 /* BookSearchCell.swift in Sources */,
 				7741147A2920B865004BE3AD /* HeaderCollectionReusableView.swift in Sources */,
 				5E14373B291383CD008D2ACB /* SearchBookDetailViewController.swift in Sources */,
-				77ED37B22922391A0046E644 /* ProfileImageCell.swift in Sources */,
 				777FC5762907B54300697B75 /* AppDelegate.swift in Sources */,
 				7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */,
 				5E0FA222291CBB8100CB6707 /* DiscussionCell.swift in Sources */,
