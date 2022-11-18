@@ -6,25 +6,33 @@
 //
 
 import UIKit
-
 import Parse
-
 import SwiftUI
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var ProfileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameDisplay: UILabel!
+    @IBOutlet weak var usernameDisplay: UILabel!
+    @IBOutlet weak var bioDisplay: UILabel!
+    
+    let user = PFUser.current()!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Profile"
+        title = "My Profile"
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        ProfileImageView.layer.masksToBounds = true
-        ProfileImageView.layer.cornerRadius = ProfileImageView.bounds.width / 2
-        ProfileImageView.layer.borderWidth = 1
-        ProfileImageView.layer.borderColor = UIColor.black.cgColor
-        ProfileImageView.clipsToBounds = true
+        nameDisplay.text = "Elaine Luzung"
+        usernameDisplay.text = "@" + user.username!
+        bioDisplay.text = "I love to read all kinds of genres. My favorite book series is The Giver. I love frogs."
+        
+        profileImageView.layer.masksToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
+        profileImageView.layer.borderWidth = 7
+        profileImageView.layer.borderColor = UIColor.white.cgColor
+        profileImageView.clipsToBounds = true
     }
     
     @IBAction func logoutButton(_ sender: Any) {
@@ -39,4 +47,7 @@ class ProfileViewController: UIViewController {
         delegate.window?.rootViewController = loginViewController
     }
     
+    @IBAction func editProfile(_ sender: Any) {
+        self.performSegue(withIdentifier: "toEditProfile", sender: nil)
+    }
 }

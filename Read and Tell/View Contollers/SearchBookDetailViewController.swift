@@ -54,7 +54,6 @@ class SearchBookDetailViewController: UIViewController {
         getRating()
     }
     
-    
     @IBAction func saveToCollection(_ sender: Any) {
         let user = PFUser.current()!
         let bookObject = PFObject(className: "Books")
