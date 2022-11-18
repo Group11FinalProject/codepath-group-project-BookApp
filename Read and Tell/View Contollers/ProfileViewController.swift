@@ -24,15 +24,30 @@ class ProfileViewController: UIViewController {
         title = "My Profile"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        nameDisplay.text = user["fullName"] as! String
-        usernameDisplay.text = "@" + user.username!
-        bioDisplay.text = user["bio"] as! String
-        
         profileImageView.layer.masksToBounds = true
         profileImageView.layer.cornerRadius = profileImageView.bounds.width / 2
         profileImageView.layer.borderWidth = 7
         profileImageView.layer.borderColor = UIColor.white.cgColor
         profileImageView.clipsToBounds = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if user["profileImage"] != nil {
+            
+            let imageFile = user["profileImage"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            profileImageView.af.setImage(withURL: url)
+            
+        } else {
+            
+            profileImageView.image = UIImage(named: "default_profile_image")
+            
+        }
+        
+        nameDisplay.text = (user["fullName"] as! String)
+        usernameDisplay.text = "@" + user.username!
+        bioDisplay.text = (user["bio"] as! String)
     }
     
     @IBAction func logoutButton(_ sender: Any) {

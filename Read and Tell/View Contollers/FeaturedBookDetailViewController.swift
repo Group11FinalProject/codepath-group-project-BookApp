@@ -168,7 +168,6 @@ class FeaturedBookDetailViewController: UIViewController {
             
         }
         
-        
         if book["industryIdentifiers"] != nil {
             
             let industryIdentifierArray = book["industryIdentifiers"] as? [NSDictionary]
@@ -212,10 +211,7 @@ class FeaturedBookDetailViewController: UIViewController {
                     //self.recommendedBook = true
                     //self.reviewTableView.reloadData()
                 }
-            }
-            
-            
-            
+            }   
         }
         
         

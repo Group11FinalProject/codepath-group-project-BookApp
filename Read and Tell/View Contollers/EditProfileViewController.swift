@@ -22,9 +22,28 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         title = "Edit Profile"
         
+        if user["profileImage"] != nil {
+            
+            let imageFile = user["profileImage"] as! PFFileObject
+            let urlString = imageFile.url!
+            let url = URL(string: urlString)!
+            editProfileImageView.af.setImage(withURL: url)
+            
+        } else {
+            
+            editProfileImageView.image = UIImage(named: "default_profile_image")
+            
+        }
+        
         usernameInput.text = user.username
         nameInput.text = user["fullName"] as? String
         bioInput.text = user["bio"] as? String
+        
+        editProfileImageView.layer.masksToBounds = true
+        editProfileImageView.layer.cornerRadius = editProfileImageView.bounds.width / 2
+        editProfileImageView.layer.borderWidth = 2
+        editProfileImageView.layer.borderColor = UIColor.black.cgColor
+        editProfileImageView.clipsToBounds = true
         
     }
     
@@ -43,8 +62,39 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         present(picker, animated: true, completion: nil)
     }
     
-    @IBAction func saveChanges(_ sender: Any) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        let size = CGSize (width: 250, height: 250)
+        let scaledImage = image.af.imageAspectScaled(toFill: size)
         
+        editProfileImageView.image = scaledImage
+        
+        dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func saveChanges(_ sender: Any) {
+        //let controller = ProfileViewController()
+        user.username = usernameInput.text
+        user["fullName"] = nameInput.text
+        user["bio"] = bioInput.text
+        
+        if user["profileImage"] != nil {
+            let imageData = editProfileImageView.image!.pngData()
+            let file = PFFileObject(name: "image.png", data: imageData!)
+            user["profileImage"] = file
+        } else {
+            let imageData = UIImage(named:"default_profile_image")?.pngData()
+            let file = PFFileObject(name: "image.png", data: imageData!)
+            user["profileImage"] = file
+        }
+        
+        user.saveInBackground { (success, error) in
+            if success {
+                print("saved!")
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                print("error!")
+            }
+        }
+    }
 }
