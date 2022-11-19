@@ -24,6 +24,11 @@
 		5E23BB622928DC8A00F3AC66 /* 87676-teaching-study-two-girls-with-books-and-a-skateboard.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E23BB612928DC8A00F3AC66 /* 87676-teaching-study-two-girls-with-books-and-a-skateboard.json */; };
 		6E0D1033EE67066FE5B435DD /* Pods_Read_and_TellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE015C5A82D533D0CC0F3B9 /* Pods_Read_and_TellTests.framework */; };
 		7741147A2920B865004BE3AD /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774114792920B865004BE3AD /* HeaderCollectionReusableView.swift */; };
+		7748D9722928E6950063EABB /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748D9712928E6950063EABB /* MyFriendsViewController.swift */; };
+		7748D97429292B1D0063EABB /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748D97329292B1D0063EABB /* FriendSearchViewController.swift */; };
+		7748D9762929345B0063EABB /* FriendSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748D9752929345B0063EABB /* FriendSearchCell.swift */; };
+		7748D978292937490063EABB /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748D977292937490063EABB /* FriendCell.swift */; };
+		7748D97A29294B690063EABB /* PopUpWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748D97929294B690063EABB /* PopUpWindowViewController.swift */; };
 		7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7749C737290F91B50029A91D /* CollectionScreenViewController.swift */; };
 		7749C73A290F9CAA0029A91D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7749C739290F9CAA0029A91D /* Assets.xcassets */; };
 		7749C73C290FA0000029A91D /* CollectionGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7749C73B290FA0000029A91D /* CollectionGridCell.swift */; };
@@ -80,6 +85,11 @@
 		5E23BB5F2928DAFC00F3AC66 /* LaunchScreenAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenAnimationViewController.swift; sourceTree = "<group>"; };
 		5E23BB612928DC8A00F3AC66 /* 87676-teaching-study-two-girls-with-books-and-a-skateboard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "87676-teaching-study-two-girls-with-books-and-a-skateboard.json"; sourceTree = "<group>"; };
 		774114792920B865004BE3AD /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderCollectionReusableView.swift; path = "Read and Tell/HeaderCollectionReusableView.swift"; sourceTree = SOURCE_ROOT; };
+		7748D9712928E6950063EABB /* MyFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
+		7748D97329292B1D0063EABB /* FriendSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
+		7748D9752929345B0063EABB /* FriendSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSearchCell.swift; sourceTree = "<group>"; };
+		7748D977292937490063EABB /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		7748D97929294B690063EABB /* PopUpWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpWindowViewController.swift; sourceTree = "<group>"; };
 		7749C737290F91B50029A91D /* CollectionScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionScreenViewController.swift; sourceTree = "<group>"; };
 		7749C739290F9CAA0029A91D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7749C73B290FA0000029A91D /* CollectionGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGridCell.swift; sourceTree = "<group>"; };
@@ -216,6 +226,8 @@
 				77C7CE812910A7D0003836B7 /* BookSearchCell.swift */,
 				776D297B2914D4FB003AF594 /* ReviewCell.swift */,
 				5E0FA221291CBB8100CB6707 /* DiscussionCell.swift */,
+				7748D9752929345B0063EABB /* FriendSearchCell.swift */,
+				7748D977292937490063EABB /* FriendCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -235,6 +247,9 @@
 				5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */,
 				4C841480291793DE00150E46 /* ProfileViewController.swift */,
 				77ED37B929233BCA0046E644 /* EditProfileViewController.swift */,
+				7748D9712928E6950063EABB /* MyFriendsViewController.swift */,
+				7748D97329292B1D0063EABB /* FriendSearchViewController.swift */,
+				7748D97929294B690063EABB /* PopUpWindowViewController.swift */,
 			);
 			path = "View Contollers";
 			sourceTree = "<group>";
@@ -492,12 +507,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7748D9722928E6950063EABB /* MyFriendsViewController.swift in Sources */,
 				77C7CE802910A6C5003836B7 /* SearchScreenViewController.swift in Sources */,
 				776D297C2914D4FB003AF594 /* ReviewCell.swift in Sources */,
 				77ED37BE2923403B0046E644 /* ProfileCustomLabel.swift in Sources */,
+				7748D97A29294B690063EABB /* PopUpWindowViewController.swift in Sources */,
 				89C21DBA2909E28D00B041DE /* BookGridCell.swift in Sources */,
 				294FC0BB29122B3D0086E231 /* SignupViewController.swift in Sources */,
 				5E2195732914779B001D259F /* FeaturedBookDetailViewController.swift in Sources */,
+				7748D978292937490063EABB /* FriendCell.swift in Sources */,
 				777FC57A2907B54300697B75 /* ViewController.swift in Sources */,
 				4C841481291793DE00150E46 /* ProfileViewController.swift in Sources */,
 				89C21DB82909E1D500B041DE /* HomeScreenViewController.swift in Sources */,
@@ -505,11 +523,13 @@
 				4C63C202291893C600DC1A9F /* CustomTextField.swift in Sources */,
 				5E0FA21C291C8F3E00CB6707 /* DiscussionContentViewController.swift in Sources */,
 				77C7CE822910A7D0003836B7 /* BookSearchCell.swift in Sources */,
+				7748D97429292B1D0063EABB /* FriendSearchViewController.swift in Sources */,
 				7741147A2920B865004BE3AD /* HeaderCollectionReusableView.swift in Sources */,
 				5E23BB602928DAFC00F3AC66 /* LaunchScreenAnimationViewController.swift in Sources */,
 				5E14373B291383CD008D2ACB /* SearchBookDetailViewController.swift in Sources */,
 				777FC5762907B54300697B75 /* AppDelegate.swift in Sources */,
 				7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */,
+				7748D9762929345B0063EABB /* FriendSearchCell.swift in Sources */,
 				5E0FA222291CBB8100CB6707 /* DiscussionCell.swift in Sources */,
 				4C84148329179FA500150E46 /* SettingsViewController.swift in Sources */,
 				5E1C3F952915C5EC00EBA6D9 /* ReviewsContentViewController.swift in Sources */,
