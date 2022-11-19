@@ -20,6 +20,8 @@
 		5E14373B291383CD008D2ACB /* SearchBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */; };
 		5E1C3F952915C5EC00EBA6D9 /* ReviewsContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1C3F942915C5EC00EBA6D9 /* ReviewsContentViewController.swift */; };
 		5E2195732914779B001D259F /* FeaturedBookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */; };
+		5E23BB602928DAFC00F3AC66 /* LaunchScreenAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23BB5F2928DAFC00F3AC66 /* LaunchScreenAnimationViewController.swift */; };
+		5E23BB622928DC8A00F3AC66 /* 87676-teaching-study-two-girls-with-books-and-a-skateboard.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E23BB612928DC8A00F3AC66 /* 87676-teaching-study-two-girls-with-books-and-a-skateboard.json */; };
 		6E0D1033EE67066FE5B435DD /* Pods_Read_and_TellTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFE015C5A82D533D0CC0F3B9 /* Pods_Read_and_TellTests.framework */; };
 		7741147A2920B865004BE3AD /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774114792920B865004BE3AD /* HeaderCollectionReusableView.swift */; };
 		7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7749C737290F91B50029A91D /* CollectionScreenViewController.swift */; };
@@ -75,6 +77,8 @@
 		5E14373A291383CD008D2ACB /* SearchBookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookDetailViewController.swift; sourceTree = "<group>"; };
 		5E1C3F942915C5EC00EBA6D9 /* ReviewsContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsContentViewController.swift; sourceTree = "<group>"; };
 		5E2195722914779B001D259F /* FeaturedBookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedBookDetailViewController.swift; sourceTree = "<group>"; };
+		5E23BB5F2928DAFC00F3AC66 /* LaunchScreenAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenAnimationViewController.swift; sourceTree = "<group>"; };
+		5E23BB612928DC8A00F3AC66 /* 87676-teaching-study-two-girls-with-books-and-a-skateboard.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "87676-teaching-study-two-girls-with-books-and-a-skateboard.json"; sourceTree = "<group>"; };
 		774114792920B865004BE3AD /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeaderCollectionReusableView.swift; path = "Read and Tell/HeaderCollectionReusableView.swift"; sourceTree = SOURCE_ROOT; };
 		7749C737290F91B50029A91D /* CollectionScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionScreenViewController.swift; sourceTree = "<group>"; };
 		7749C739290F9CAA0029A91D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				777FC5752907B54300697B75 /* AppDelegate.swift */,
 				777FC5772907B54300697B75 /* SceneDelegate.swift */,
 				777FC5792907B54300697B75 /* ViewController.swift */,
+				5E23BB612928DC8A00F3AC66 /* 87676-teaching-study-two-girls-with-books-and-a-skateboard.json */,
 				7749C739290F9CAA0029A91D /* Assets.xcassets */,
 				777FC5832907B54500697B75 /* Info.plist */,
 				777FC5802907B54500697B75 /* LaunchScreen.storyboard */,
@@ -181,6 +186,7 @@
 				4C63C201291893C600DC1A9F /* CustomTextField.swift */,
 				774114792920B865004BE3AD /* HeaderCollectionReusableView.swift */,
 				77ED37BD2923403B0046E644 /* ProfileCustomLabel.swift */,
+				5E23BB5F2928DAFC00F3AC66 /* LaunchScreenAnimationViewController.swift */,
 			);
 			path = "Read and Tell";
 			sourceTree = "<group>";
@@ -358,6 +364,7 @@
 				777FC5822907B54500697B75 /* LaunchScreen.storyboard in Resources */,
 				7749C73A290F9CAA0029A91D /* Assets.xcassets in Resources */,
 				777FC57D2907B54300697B75 /* Main.storyboard in Resources */,
+				5E23BB622928DC8A00F3AC66 /* 87676-teaching-study-two-girls-with-books-and-a-skateboard.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +506,7 @@
 				5E0FA21C291C8F3E00CB6707 /* DiscussionContentViewController.swift in Sources */,
 				77C7CE822910A7D0003836B7 /* BookSearchCell.swift in Sources */,
 				7741147A2920B865004BE3AD /* HeaderCollectionReusableView.swift in Sources */,
+				5E23BB602928DAFC00F3AC66 /* LaunchScreenAnimationViewController.swift in Sources */,
 				5E14373B291383CD008D2ACB /* SearchBookDetailViewController.swift in Sources */,
 				777FC5762907B54300697B75 /* AppDelegate.swift in Sources */,
 				7749C738290F91B50029A91D /* CollectionScreenViewController.swift in Sources */,
