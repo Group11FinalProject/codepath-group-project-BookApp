@@ -8,9 +8,7 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController {
-    //UITextFieldDelegate
-    
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameText: CustomTextField!
     @IBOutlet weak var passwordText: CustomTextField!
@@ -22,20 +20,15 @@ class LoginViewController: UIViewController {
         usernameText.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0/1.0)
         passwordText.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0/1.0)
         
-        //usernameText.delegate = self
-        //passwordText.delegate = self
+        usernameText.delegate = self
+        passwordText.delegate = self
         
     }
     
-    /*
-    func textField(_ textField: UITextField, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if (text == "\n") {
-            textField.resignFirstResponder()
-            return false
-        }
-        return true
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
-    */
     
     //User Logs into their account and takes them to the Home Screen
     @IBAction func loginButton(_ sender: Any) {

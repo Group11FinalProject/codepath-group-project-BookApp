@@ -71,4 +71,9 @@ class ProfileViewController: UIViewController {
     @IBAction func editProfile(_ sender: Any) {
         self.performSegue(withIdentifier: "toEditProfile", sender: nil)
     }
+    
+    
+    @IBAction func toFriendsList(_ sender: Any) {
+        self.performSegue(withIdentifier: "toFriendsList", sender: nil)
+    }
 }

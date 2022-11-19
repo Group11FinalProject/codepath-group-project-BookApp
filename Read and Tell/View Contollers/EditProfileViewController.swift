@@ -9,7 +9,7 @@ import UIKit
 import Parse
 import AlamofireImage
 
-class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var editProfileImageView: UIImageView!
     @IBOutlet weak var nameInput: UITextField!
@@ -50,6 +50,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         editProfileImageView.layer.borderColor = UIColor.black.cgColor
         editProfileImageView.clipsToBounds = true
         
+        nameInput.delegate = self
+        usernameInput.delegate = self
+        bioInput.delegate = self
+        
     }
     
     @IBAction func selectPictureButton(_ sender: Any) {
@@ -75,6 +79,11 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         editProfileImageView.image = scaledImage
         
         dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     @IBAction func swipeToDismiss(_ sender: Any) {
