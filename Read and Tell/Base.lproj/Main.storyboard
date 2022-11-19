@@ -204,8 +204,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-<<<<<<< Updated upstream
-=======
+
+
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C6l-b6-0eU">
                                                 <rect key="frame" x="191" y="105" width="44" height="34"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,7 +220,7 @@
                                                     <action selector="reccomendBook:" destination="L3o-UE-rM3" eventType="touchUpInside" id="uA3-MC-N7n"/>
                                                 </connections>
                                             </button>
->>>>>>> Stashed changes
+
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txA-ry-85y">
                                                 <rect key="frame" x="279" y="106" width="51" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1632,11 +1632,11 @@
         <segue reference="lCb-lX-c10"/>
         <segue reference="tlL-he-bDh"/>
         <segue reference="2mW-Df-aoZ"/>
-=======
+
         <segue reference="lCb-lX-c10"/>
         <segue reference="tlL-he-bDh"/>
         <segue reference="hWd-VQ-eRH"/>
->>>>>>> Stashed changes
+
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
