@@ -9,6 +9,7 @@ target 'Read and Tell' do
   pod "AlamofireImage"
   pod "Parse"
   pod "MessageInputBar"
+  pod "lottie-ios"
 
 
   target 'Read and TellTests' do

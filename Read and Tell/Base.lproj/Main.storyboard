@@ -348,13 +348,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWX-Eq-egH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWX-Eq-egH">
                                                     <rect key="frame" x="164" y="16" width="214" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-Eh-azZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-Eh-azZ">
                                                     <rect key="frame" x="164" y="51.5" width="242" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -654,14 +654,14 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddReviewCell" id="Uv0-cg-m7M">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="43"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uv0-cg-m7M" id="ZEu-4I-vmy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a review..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge3-qF-C1Z">
-                                                    <rect key="frame" x="20" y="11" width="374" height="21.5"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="Jvc-Qg-5jf"/>
                                                     </constraints>
@@ -679,7 +679,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="152" id="Rwi-1Z-HyU" customClass="ReviewCell" customModule="Read_and_Tell" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="93.5" width="414" height="152"/>
+                                        <rect key="frame" x="0.0" y="93" width="414" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rwi-1Z-HyU" id="kvC-4V-XTm">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="152"/>
@@ -857,6 +857,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZDV-6Q-uQe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yPx-xA-k5S" appends="YES" id="Rpi-de-56P"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="passwordText" destination="x80-Ok-bLl" id="sJB-83-f1V"/>
@@ -866,6 +870,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iS8-Kb-McB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="yPx-xA-k5S">
+                    <connections>
+                        <action selector="swipeToDismiss:" destination="YAs-uD-TUd" id="OIt-aj-7uV"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-364" y="-1927"/>
         </scene>
@@ -927,6 +936,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="J6q-gI-nhL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vv2-Cn-vXx" appends="YES" id="ZCG-DJ-5VG"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -939,6 +952,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CEd-Qq-iKx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="vv2-Cn-vXx">
+                    <connections>
+                        <action selector="swipeToDismiss:" destination="I4M-IX-DPA" id="RNf-oS-jPp"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="505.79710144927537" y="-1927.2321428571427"/>
         </scene>
@@ -1015,7 +1033,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XHQ-9B-8XR" userLabel="Name Input">
-                                <rect key="frame" x="141" y="476" width="253" height="34"/>
+                                <rect key="frame" x="122" y="476" width="253" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1027,16 +1045,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="add your bio here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nBg-hj-5fF" userLabel="Bio Input">
-                                <rect key="frame" x="141" y="532" width="253" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7nf-OA-cbz" userLabel="Username Input">
-                                <rect key="frame" x="141" y="419" width="253" height="34"/>
+                                <rect key="frame" x="122" y="419" width="253" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1049,9 +1059,21 @@
                                     <outletCollection property="gestureRecognizers" destination="voB-p3-8pU" appends="YES" id="mWO-L6-GFa"/>
                                 </connections>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="add your bio here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nBg-hj-5fF" userLabel="Bio Input">
+                                <rect key="frame" x="122" y="532" width="253" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rqW-FV-Lc5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="aCI-1F-h2n" appends="YES" id="5VX-VG-iFd"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="U9Q-4Z-HRj"/>
                     <connections>
@@ -1067,6 +1089,11 @@
                         <action selector="selectPictureButton:" destination="4J3-rx-cEG" id="Xu7-c8-IZh"/>
                     </connections>
                 </tapGestureRecognizer>
+                <swipeGestureRecognizer direction="down" id="aCI-1F-h2n">
+                    <connections>
+                        <action selector="swipeToDismiss:" destination="4J3-rx-cEG" id="mkT-3C-xcj"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1437.68115942029" y="1125.6696428571429"/>
         </scene>
