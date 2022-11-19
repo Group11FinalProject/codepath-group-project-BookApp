@@ -20,7 +20,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        view.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
         title = "Edit Profile"
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         
         if user["profileImage"] != nil {
             

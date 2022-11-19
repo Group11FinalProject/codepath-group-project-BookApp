@@ -20,6 +20,8 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchTableView.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
         title = "Search"
          
         searchTableView.dataSource = self
@@ -102,6 +104,9 @@ class SearchScreenViewController: UIViewController, UITableViewDataSource, UITab
             return cell
         } else if indexPath.row <= searchedBooks.count {
             let cell = searchTableView.dequeueReusableCell(withIdentifier: "BookSearchCell") as! BookSearchCell
+            
+            cell.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+            
             let bookInfo = searchedBooks[indexPath.row - 1]["volumeInfo"] as? NSDictionary
             
             cell.bookTitleLabel.text = bookInfo?["title"] as? String

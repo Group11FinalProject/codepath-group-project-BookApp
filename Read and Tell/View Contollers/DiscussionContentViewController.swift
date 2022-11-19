@@ -24,6 +24,8 @@ class DiscussionContentViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        discussionTableView.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
         myRefreshControl.addTarget(self, action: #selector(onRefresh), for: UIControl.Event.valueChanged)
         
         discussionTableView.insertSubview(myRefreshControl, at: 0)

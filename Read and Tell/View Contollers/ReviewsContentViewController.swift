@@ -22,6 +22,8 @@ class ReviewsContentViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        reviewTableView.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
         myRefreshControl.addTarget(self, action: #selector(onRefresh), for: UIControl.Event.valueChanged)
         reviewTableView.insertSubview(myRefreshControl, at: 0)
         
