@@ -77,6 +77,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func swipeToDismiss(_ sender: Any) {
+        nameInput.resignFirstResponder()
+        usernameInput.resignFirstResponder()
+        bioInput.resignFirstResponder()
+    }
+    
     @IBAction func saveChanges(_ sender: Any) {
         //let controller = ProfileViewController()
         user.username = usernameInput.text

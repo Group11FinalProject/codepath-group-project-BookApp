@@ -56,13 +56,18 @@ class SignupViewController: UIViewController {
         
     }
     
-    
     @IBAction func backToLogin(_ sender: Any) {
         self.performSegue(withIdentifier: "signUpToLogin", sender: nil)
         
         
     }
     
+    //When User swipes down on the screen, keyboard gets dismissed
+    @IBAction func swipeToDismiss(_ sender: Any) {
+        signupUsernameText.resignFirstResponder()
+        signupPasswordText.resignFirstResponder()
+        emailText.resignFirstResponder()
+    }
     
     /*
     // MARK: - Navigation
