@@ -18,6 +18,8 @@ class CollectionScreenViewController: UIViewController, UICollectionViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        myBooksCollectionView.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
         title = "My Collection"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         

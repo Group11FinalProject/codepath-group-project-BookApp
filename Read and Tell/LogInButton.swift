@@ -12,7 +12,7 @@ class LogInButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        layer.backgroundColor = UIColor(red: 111/255, green: 160, blue: 250/255, alpha: 1).cgColor
+        layer.backgroundColor = UIColor(red: 170.0/255.0, green: 195.0/255.0, blue: 161.0/255.0, alpha: 1.0/1.0).cgColor
         layer.cornerRadius = 20
     }
 

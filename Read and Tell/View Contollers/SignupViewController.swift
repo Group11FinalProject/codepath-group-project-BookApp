@@ -17,7 +17,15 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        view.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
+        signupUsernameText.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0/1.0)
+        
+        signupPasswordText.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0/1.0)
+        
+        emailText.backgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0/1.0)
         // Do any additional setup after loading the view.
     }
     
@@ -47,6 +55,14 @@ class SignupViewController: UIViewController {
         }
         
     }
+    
+    
+    @IBAction func backToLogin(_ sender: Any) {
+        self.performSegue(withIdentifier: "signUpToLogin", sender: nil)
+        
+        
+    }
+    
     
     /*
     // MARK: - Navigation

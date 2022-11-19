@@ -18,6 +18,8 @@ class HomeScreenViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bookCollectionView.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
         title = "Top Sellers"
         self.navigationController?.navigationBar.prefersLargeTitles = true
 

@@ -20,10 +20,15 @@ class FeaturedBookDetailViewController: UIViewController {
     
     @IBOutlet weak var featuredBookThumbsDown: UIButton!
     
+    @IBOutlet weak var discussionBoardLabel: UILabel!
     
     
     @IBOutlet weak var featuredBookThumbsDownNumber: UILabel!
     @IBOutlet weak var featuredBooksThumbsUpNumber: UILabel!
+    
+    @IBOutlet weak var featuredScrollViewView: UIView!
+    
+    @IBOutlet weak var reviewsLabel: UILabel!
     
     var book: NSDictionary!
     var recommendations = [PFObject]()
@@ -34,6 +39,18 @@ class FeaturedBookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
+        featuredScrollViewView.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
+        
+        reviewsLabel.layer.masksToBounds = true
+        discussionBoardLabel.layer.masksToBounds = true
+        
+        reviewsLabel.layer.cornerRadius = 14
+        discussionBoardLabel.layer.cornerRadius = 14
+        
         
         featuredBookTitleLabel.text = book["title"] as? String
         featuredBookAuthorLabel.text = book["author"] as? String

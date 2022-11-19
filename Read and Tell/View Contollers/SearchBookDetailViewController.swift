@@ -21,11 +21,28 @@ class SearchBookDetailViewController: UIViewController {
     @IBOutlet weak var star3: UIImageView!
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollViewView: UIView!
+    
+    @IBOutlet weak var searchReviewsLabel: UILabel!
+    
+   
+    @IBOutlet weak var searchDiscussionLabel: UILabel!
     
     var book: NSDictionary!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        scrollViewView.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        
+        searchReviewsLabel.layer.masksToBounds = true
+        searchDiscussionLabel.layer.masksToBounds = true
+        
+        searchReviewsLabel.layer.cornerRadius = 14
+        searchDiscussionLabel.layer.cornerRadius = 14
+        
         
         bookTitleLabel.text = book["title"] as? String
         

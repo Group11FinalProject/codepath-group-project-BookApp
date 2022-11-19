@@ -15,11 +15,17 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nameDisplay: UILabel!
     @IBOutlet weak var usernameDisplay: UILabel!
     @IBOutlet weak var bioDisplay: UILabel!
+    @IBOutlet weak var profileScrollViewView: UIView!
     
+    @IBOutlet weak var profileScrollViewOtherView: UIView!
     let user = PFUser.current()!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(red: 170.0/255.0, green: 195.0/255.0, blue: 161.0/255.0, alpha: 1.0)
+        profileScrollViewView.backgroundColor = UIColor(red: 170.0/255.0, green: 195.0/255.0, blue: 161.0/255.0, alpha: 1.0)
+        profileScrollViewOtherView.backgroundColor = UIColor(red: 236.0/255.0, green: 226.0/255.0, blue: 206.0/255.0, alpha: 1.0)
         
         title = "My Profile"
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -45,9 +51,9 @@ class ProfileViewController: UIViewController {
             
         }
         
-        nameDisplay.text = (user["fullName"] as! String)
+        nameDisplay.text = user["fullName"] as? String ?? "Your name goes here"
         usernameDisplay.text = "@" + user.username!
-        bioDisplay.text = (user["bio"] as! String)
+        bioDisplay.text = user["bio"] as? String ?? "Tell us about yourself"
     }
     
     @IBAction func logoutButton(_ sender: Any) {
